@@ -2,10 +2,24 @@ html {
   font-size: 62.5%;
 }
 
+* {
+  margin: 0;
+}
+
 body {
   margin: 0;
   background-color: var(--background);
   font-family: "Roboto", sans-serif;
   color: var(--text);
   font-size: 1.6rem;
+}
+
+h1 {
+  font-size: 7rem;
+  font-weight: 100;
+}
+
+h2 {
+  font-size: 3.4rem;
+  font-weight: 100;
 }
