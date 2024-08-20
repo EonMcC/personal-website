@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './App.scss';
-import gamePad from './gamePad.png';
-import plane from './plane.png';
-import godotIcon from './godotIcon.png';
+import gamePad from './assets/timeline-icons/gamePad.png';
+import plane from './assets/timeline-icons/plane.png';
+import GameDevelopmentPage from './sections/game-development/GameDevelopmentPage';
+import GameDevelopmentSection from './sections/game-development/GameDevelopmentPage';
+
 
 function App() {
 
@@ -79,6 +81,7 @@ function App() {
           <img src={plane} alt="Plane" />
           <p>Jan '24</p>
         </div>
+        
         <div className={multiBoxClass}>
           <div></div>
           <div></div>
@@ -88,22 +91,16 @@ function App() {
           <img src={gamePad} alt="GamePad" />
           <p>Aug '23</p>
         </div>
-
       </div>
-      <div className={firstFullPageClass}>
-        <header><h1>Game Development</h1></header>
-        <img src={godotIcon} alt="Godot icon" />
-        <div>
-          <p>An explanation of this space blah blah blah</p>
-          <p>An explanation of this space blah blah</p>
-        </div>
-      </div>
+      
       <div
         className="timeline-pointer"
         style={{
           top: `calc(${timelinePositionY}vh - 16px)`
         }}
       />
+
+      <GameDevelopmentSection className={firstFullPageClass} />
 
       {timelinePositionX > 400 && <p className="scroll-to-begin">Scroll to begin</p>}
 
