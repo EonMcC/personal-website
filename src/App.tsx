@@ -4,6 +4,7 @@ import gamePad from './assets/timeline-icons/gamePad.png';
 import plane from './assets/timeline-icons/plane.png';
 import GameDevelopmentPage from './sections/game-development/GameDevelopmentPage';
 import GameDevelopmentSection from './sections/game-development/GameDevelopmentPage';
+import { ReactComponent as FinanceTrackerIcon } from './assets/timeline-icons/financeTracker.svg';
 
 
 function App() {
@@ -16,11 +17,15 @@ function App() {
   const [multiBoxClass, setMultiBoxClass] = useState('multi-box');
   const [firstFullPageClass, setFirstFullPageClass] = useState('first-full-page');
 
+  const [currentColor, setCurrentColor] = useState('var(--text)');
+
   useEffect(() => {
     if (timelinePositionX <= 400 && timelinePositionX >= 325) {
       setGameBoxClass('game-box game-box--visible');
+      setCurrentColor('#8d713d');
     } else {
       setGameBoxClass('game-box');
+      setCurrentColor('var(--text)');
     }
 
     if (timelinePositionX <= -25 && timelinePositionX >= -150) {
@@ -68,11 +73,13 @@ function App() {
         className="timeline"
         style={{
           transform: `translateX(${timelinePositionX}px)`,
-          top: `${timelinePositionY}vh`
+          top: `${timelinePositionY}vh`,
+          backgroundColor: currentColor
         }}
       >
         <div className="timeline__entry">
-          <img src={gamePad} alt="GamePad" />
+          <FinanceTrackerIcon className="timeline__entry__icon" stroke={currentColor}/>
+          {/* <img src={gamePad} alt="GamePad" /> */}
           <p>Jun '24</p>
         </div>
         <div className={gameBoxClass}>I am the game box</div>
@@ -96,7 +103,8 @@ function App() {
       <div
         className="timeline-pointer"
         style={{
-          top: `calc(${timelinePositionY}vh - 16px)`
+          top: `calc(${timelinePositionY}vh - 16px)`,
+          borderColor: currentColor
         }}
       />
 

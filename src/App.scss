@@ -40,8 +40,14 @@ header {
   &__entry {
     text-align: center;
 
-    img {
-      transform: translateY(-2px);
+
+    &__icon {
+      transform: translateY(-7px);
+      transition: 1s all;
+      
+      path {
+        stroke: inherit;
+      }
     }
 
     p {
@@ -73,6 +79,7 @@ header {
     top: 4px;
     left: 4px;
     border: 2px solid var(--text);
+    border-color: inherit;
     border-radius: 50%;
     background-color: var(--background);
     animation: pulse 3s ease-in infinite;
@@ -89,6 +96,7 @@ header {
     animation: pulse 3s ease-in infinite;
     background-color: var(--background);
     border: 2px solid var(--text);
+    border-color: inherit;
   }
 }
 
@@ -116,7 +124,7 @@ header {
     padding: 24px;
     width: 200px;
     height: 200px;
-    border: 2px solid var(--text);
+    border: 2px solid #8d713d;
     transform: transitionY(24px);
   }
 }
