@@ -12,7 +12,7 @@ header {
   opacity: 1;
   
   :last-child {
-    opacity: .5;
+    opacity: .7;
     letter-spacing: .01rem;
   }
 
@@ -44,7 +44,7 @@ header {
         fill: inherit;
       }
 
-      .keep-background {
+      .keep-bg {
         fill: var(--background) !important;
       }
       
@@ -211,6 +211,77 @@ header {
 
 .skip-to {
   position: fixed;
-  bottom: 24px;
+  bottom: 12px;
   left: 24px;
+  padding-top: 12px;
+  border-top: 1px solid #bdbdbd85;
+  font-size: 1.4rem;
+  
+  &__entry-cont {
+    display: flex;
+    column-gap: 24px;
+    margin-top: 4px;
+
+    &__entry {
+      cursor: pointer;
+      transition: .3s all;
+
+      :last-child {
+        font-weight: 100;
+      }
+
+      &:hover {
+        scale: 1.2;
+        // transform-origin: left;
+      }
+    }
+  }
+
+}
+
+.section {
+  position: absolute;
+  top: 15%;
+  left: 100vw;
+  transition: 1s all ease-out;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 24px;
+  min-height: 340px;
+
+  &--visible {
+    left: 24px;
+  }
+
+  &--large {
+    top: 25%;
+  }
+
+  &__text {
+    max-width: 50%;
+  
+    p {
+      margin-bottom: 12px;
+  
+      &:last-child {
+        margin-top: 24px;
+        opacity: .5;
+      }
+    }
+  }
+}
+
+.screen-too-small {
+  margin-top: 10%;
+  text-align: center;
+
+  h2 {
+    margin-bottom: 24px;
+  }
+
+  p {
+    margin-bottom: 8px;
+  }
 }

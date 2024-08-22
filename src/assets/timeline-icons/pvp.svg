@@ -5,5 +5,5 @@
 <path fill-rule="evenodd" clip-rule="evenodd" d="M16 2H14V4H16V2ZM12 0V6H18V0H12Z" fill="#202020"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M22 8H20V10H22V8ZM18 6V12H24V6H18Z" fill="#202020"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M4 8H2V10H4V8ZM0 6V12H6V6H0Z" fill="#202020"/>
-<path d="M6 16H12V18H6V16Z" fill="#F0F0F0" className="keep-background"/>
+<path d="M6 16H12V18H6V16Z" fill="#F0F0F0" className="keep-bg"/>
 </svg>
