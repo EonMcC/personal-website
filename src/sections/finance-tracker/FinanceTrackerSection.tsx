@@ -1,6 +1,6 @@
 import React from 'react';
 import './FinanceTrackerSection.scss';
-import financeTrackerPhone from '../../assets/timeline-icons/financeTrackerPhone.png';
+import financeTrackerPhone from '../../assets/images/financeTrackerPhone.png';
 import { Section, sections } from '../../data/sections';
 
 const FinanceTrackerSection: React.FC<{
@@ -10,7 +10,6 @@ const FinanceTrackerSection: React.FC<{
 }) => {
 
   const section: Section | undefined = sections.find(el => el.name === 'FINANCE_TRACKER');
-  console.log('section', section)
 
   return (
     <section

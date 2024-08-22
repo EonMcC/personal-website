@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './App.scss';
-import gamePad from './assets/timeline-icons/gamePad.png';
-import plane from './assets/timeline-icons/plane.png';
 import GameDevelopmentSection from './sections/game-development/GameDevelopmentPage';
 import { ReactComponent as FinanceTrackerIcon } from './assets/timeline-icons/financeTracker.svg';
+import { ReactComponent as GameDevIcon } from './assets/timeline-icons/gameDev.svg';
+import { ReactComponent as PvpIcon } from './assets/timeline-icons/pvp.svg';
 import FinanceTrackerSection from './sections/finance-tracker/FinanceTrackerSection';
 import { isBetween } from './helpers/helperFunctions';
-import { Section, sections } from './data/sections';
+import { sections } from './data/sections';
 
 function App() {
 
@@ -28,14 +28,28 @@ function App() {
         setVisibleSection(section.name);
         setCurrentColor(section.color);
         changeHeader(section);
+
+
         if (section.offsetY) setYVH('80vh');
         else setYVH('55vh');        
         break;
       }
       changeHeader();
+      setYVH('55vh');
       resetVisuals();
     }
   }, [x])
+
+  // useEffect(() => {
+  //   const fills = document.getElementsByClassName('icon-fill') as any;
+  //   const strokes = document.getElementsByClassName('icon-stroke') as any;
+  //   for (const el of fills) {
+  //     el.style.fill = currentColor;
+  //   }
+  //   for (const el of strokes) {
+  //     el.style.stroke = currentColor;
+  //   }
+  // }, [currentColor])
 
   function changeHeader({title, subTitle} = {title: 'Iain McClafferty', subTitle: 'Developer | Designer | Storyteller'}) {
     if (header.title !== title) {
@@ -66,7 +80,7 @@ function App() {
   function skipTo(area: string) {
     for (const section of sections) {
       if (section.name === area) {
-        setX(section.xRange[0])
+        setX(section.xRange[0] + 25)
         break;
       };
     }
@@ -74,7 +88,10 @@ function App() {
 
   return (
     <div id="app" ref={appRef} onWheel={onWheel}>
-      <header className={headerClass}>
+      <header
+        className={headerClass}
+        style={{color: currentColor}}
+      >
         <h1>{header.title}</h1>
         <h2>{header.subTitle}</h2>
       </header>
@@ -88,26 +105,41 @@ function App() {
         }}
       >
         <div className="timeline__entry">
-          <FinanceTrackerIcon className="timeline__entry__icon" stroke={currentColor}/>
+          <FinanceTrackerIcon
+            className={
+              visibleSection === "FINANCE_TRACKER"
+              ? "timeline__entry__icon timeline__entry__icon--visible"
+              : "timeline__entry__icon"
+            }
+            fill={currentColor}
+          />
           <p>Aug '24</p>
         </div>
-        <FinanceTrackerSection isVisible={visibleSection === "FINANCE_TRACKER"} />
-        {/* <div className={visibleSection === "FINANCE_TRACKER" ? "game-box game-box--visible" : "game-box"}>I am the game box</div> */}
 
         <div className="timeline__entry">
-          <img src={plane} alt="Plane" />
+          <GameDevIcon
+            className={
+              visibleSection === "GAME_DEV"
+              ? "timeline__entry__icon timeline__entry__icon--visible"
+              : "timeline__entry__icon"
+            }
+            fill={currentColor}
+          />
+          <p>June '24</p>
+        </div>
+
+        <div className="timeline__entry">
+          <PvpIcon
+            className={
+              visibleSection === "PVP"
+              ? "timeline__entry__icon timeline__entry__icon--visible"
+              : "timeline__entry__icon"
+            }
+            fill={currentColor}
+          />
           <p>Jan '24</p>
         </div>
-        
-        <div>
-          <div></div>
-          <div></div>
-        </div>
 
-        <div className="timeline__entry">
-          <img src={gamePad} alt="GamePad" />
-          <p>Aug '23</p>
-        </div>
       </div>
       
       <div
@@ -118,6 +150,7 @@ function App() {
         }}
       />
 
+      <FinanceTrackerSection isVisible={visibleSection === "FINANCE_TRACKER"} />
       <GameDevelopmentSection isVisible={visibleSection === "GAME_DEV"} />
 
       {x > 400 && <p className="scroll-to-begin">Scroll to begin</p>}

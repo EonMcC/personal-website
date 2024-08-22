@@ -16,9 +16,6 @@ header {
     letter-spacing: .01rem;
   }
 
-  // &--hidden {
-  //   transform: translateX(-500px);
-  // }
   &--hidden {
     opacity: 0;
   }
@@ -32,25 +29,29 @@ header {
   position: absolute;
   width: 3000px;
   transition: all 1s;
-
   display: flex;
   align-items: end;
 
-  > * {
-    height: 12px;
-    margin-left: 125px;
-  }
-
   &__entry {
+    margin-left: 125px;
     text-align: center;
-
+    transform: translateY(25px);
 
     &__icon {
-      transform: translateY(-7px);
       transition: 1s all;
       
       path {
-        stroke: inherit;
+        fill: inherit;
+      }
+
+      .keep-background {
+        fill: var(--background) !important;
+      }
+      
+
+      &--visible {
+        scale: 2;
+        transform-origin: bottom;
       }
     }
 

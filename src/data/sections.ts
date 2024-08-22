@@ -27,6 +27,14 @@ export const sections = [
     subTitle: ESubTitle.HOBBY,
     color: '#4E8BBF',
     offsetY: true,
-    xRange: [-150, -25]
+    xRange: [125, 225]
+  },
+  {
+    name: 'PVP',
+    title: 'PvP Health',
+    subTitle: ESubTitle.PERSONAL_PROJECT,
+    color: '#2C9D5A',
+    offsetY: true,
+    xRange: [-50, 25]
   }
 ]
