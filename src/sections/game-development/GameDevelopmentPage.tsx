@@ -1,10 +1,16 @@
 import React from 'react';
 import godotIcon from '../../assets/timeline-icons/godotIcon.png';
 
-const GameDevelopmentSection: React.FC<{className: string}> = ({className}) => {
+const GameDevelopmentSection: React.FC<{isVisible: boolean}> = ({isVisible}) => {
 
   return (
-    <section className={className}>
+    <section
+      className={
+        isVisible
+          ? "first-full-page first-full-page--visible"
+          : "first-full-page"
+      }
+    >
       <header><h1>Game Development</h1></header>
       <img src={godotIcon} alt="Godot icon" />
       <div>

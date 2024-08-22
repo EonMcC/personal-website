@@ -1,0 +1,52 @@
+.finance-tracker-section {
+  width: 0;
+  height: 0;
+  display: flex;
+  align-items: center;
+  transition: .7s 1s width ease-out,  1s height ease-out;
+  overflow: hidden;
+  translate: 0%;
+  
+  &--visible {
+    position: relative;
+    width: 50vw;
+    height: 400px;
+    transition: .7s 1s height ease-out,  1s width ease-out;
+    translate: -20%;
+  }
+}
+
+.section__text {
+  p {
+    margin-bottom: 12px;
+
+    &:last-child {
+      margin-top: 24px;
+      opacity: .5;
+    }
+  }
+
+}
+
+// .first-full-page {
+//   position: absolute;
+//   top: 24px;
+//   left: 100vw;
+//   transition: 1s all ease-out;
+//   width: 100vw;
+
+//   img {
+//     position: absolute;
+//     right: 10%;
+//   }
+
+//   div {
+//     position: absolute;
+//     left: 30%;
+//     top: 40vh;
+//   }
+
+//   &--visible {
+//     left: 24px;
+//   }
+// }

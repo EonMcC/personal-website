@@ -2,94 +2,104 @@ import React, { useEffect, useRef, useState } from 'react';
 import './App.scss';
 import gamePad from './assets/timeline-icons/gamePad.png';
 import plane from './assets/timeline-icons/plane.png';
-import GameDevelopmentPage from './sections/game-development/GameDevelopmentPage';
 import GameDevelopmentSection from './sections/game-development/GameDevelopmentPage';
 import { ReactComponent as FinanceTrackerIcon } from './assets/timeline-icons/financeTracker.svg';
-
+import FinanceTrackerSection from './sections/finance-tracker/FinanceTrackerSection';
+import { isBetween } from './helpers/helperFunctions';
+import { Section, sections } from './data/sections';
 
 function App() {
 
   const appRef = useRef<HTMLDivElement>(null);
-  const [timelinePositionX, setTimelinePositionX] = useState(450);
-  const [timelinePositionY, setTimelinePositionY] = useState(55);
-  const [appHeaderClass, setAppHeaderClass] = useState('app-header');
-  const [gameBoxClass, setGameBoxClass] = useState('game-box');
-  const [multiBoxClass, setMultiBoxClass] = useState('multi-box');
-  const [firstFullPageClass, setFirstFullPageClass] = useState('first-full-page');
 
+  const [x, setX] = useState(450);
+  const [yVH, setYVH] = useState('55vh');
   const [currentColor, setCurrentColor] = useState('var(--text)');
+  const [visibleSection, setVisibleSection] = useState('');
+  const [header, setHeader] = useState({
+    title: 'Iain McClafferty',
+    subTitle: 'Developer | Designer | Storyteller'
+  });
+  const [headerClass, setHeaderClass] = useState('app-header');
 
   useEffect(() => {
-    if (timelinePositionX <= 400 && timelinePositionX >= 325) {
-      setGameBoxClass('game-box game-box--visible');
-      setCurrentColor('#8d713d');
-    } else {
-      setGameBoxClass('game-box');
-      setCurrentColor('var(--text)');
+    for (const section of sections) {
+      if (isBetween(x, section.xRange[0], section.xRange[1])) {
+        setVisibleSection(section.name);
+        setCurrentColor(section.color);
+        changeHeader(section);
+        if (section.offsetY) setYVH('80vh');
+        else setYVH('55vh');        
+        break;
+      }
+      changeHeader();
+      resetVisuals();
     }
+  }, [x])
 
-    if (timelinePositionX <= -25 && timelinePositionX >= -150) {
-      setMultiBoxClass('multi-box multi-box--visible');
-    } else {
-      setMultiBoxClass('multi-box');
-    }
-
-    if (timelinePositionX <= -375 && timelinePositionX >= -425) {
-      setFirstFullPageClass('first-full-page first-full-page--visible');
-      setAppHeaderClass('app-header app-header--hidden');
-      setTimelinePositionY(80);
-    } else {
-      setFirstFullPageClass('first-full-page');
-      setAppHeaderClass('app-header');
-      setTimelinePositionY(55);
-    }
-  }, [timelinePositionX])
-
-  const onWheel = (e: any) => {
-    console.log('timelinePositionX', timelinePositionX)
-    if (e) {
-      if (e.deltaY < 0 && timelinePositionX < 450) setTimelinePositionX(timelinePositionX + 25);
-      else if (e.deltaY > 0) setTimelinePositionX(timelinePositionX - 25);
-    }
-    console.log('onWheel')
-
-  };
-
-  function skipTo(area: string) {
-    if (area === "GAME_DEV") {
-      setTimelinePositionX(-375);
+  function changeHeader({title, subTitle} = {title: 'Iain McClafferty', subTitle: 'Developer | Designer | Storyteller'}) {
+    if (header.title !== title) {
+      setHeaderClass('app-header app-header--hidden');
+      setTimeout(() => {
+        setHeader({
+          title,
+          subTitle
+        })
+        setHeaderClass('app-header');
+      }, 500)
     }
   }
 
+  function resetVisuals() {
+    setCurrentColor('var(--text)');
+    setVisibleSection('');
+  }
+
+  const onWheel = (e: any) => {
+    console.log('x', x)
+    if (e) {
+      if (e.deltaY < 0 && x < 450) setX(x + 25);
+      else if (e.deltaY > 0) setX(x - 25);
+    }
+  };
+
+  function skipTo(area: string) {
+    for (const section of sections) {
+      if (section.name === area) {
+        setX(section.xRange[0])
+        break;
+      };
+    }
+  }
 
   return (
     <div id="app" ref={appRef} onWheel={onWheel}>
-      <header className={appHeaderClass}>
-        <h1>Iain McClafferty</h1>
-        <h2>Developer | Designer | Storyteller</h2>
+      <header className={headerClass}>
+        <h1>{header.title}</h1>
+        <h2>{header.subTitle}</h2>
       </header>
 
       <div
         className="timeline"
         style={{
-          transform: `translateX(${timelinePositionX}px)`,
-          top: `${timelinePositionY}vh`,
+          transform: `translateX(${x}px)`,
+          top: yVH,
           backgroundColor: currentColor
         }}
       >
         <div className="timeline__entry">
           <FinanceTrackerIcon className="timeline__entry__icon" stroke={currentColor}/>
-          {/* <img src={gamePad} alt="GamePad" /> */}
-          <p>Jun '24</p>
+          <p>Aug '24</p>
         </div>
-        <div className={gameBoxClass}>I am the game box</div>
+        <FinanceTrackerSection isVisible={visibleSection === "FINANCE_TRACKER"} />
+        {/* <div className={visibleSection === "FINANCE_TRACKER" ? "game-box game-box--visible" : "game-box"}>I am the game box</div> */}
 
         <div className="timeline__entry">
           <img src={plane} alt="Plane" />
           <p>Jan '24</p>
         </div>
         
-        <div className={multiBoxClass}>
+        <div>
           <div></div>
           <div></div>
         </div>
@@ -103,17 +113,18 @@ function App() {
       <div
         className="timeline-pointer"
         style={{
-          top: `calc(${timelinePositionY}vh - 16px)`,
+          top: `calc(${yVH} - 16px)`,
           borderColor: currentColor
         }}
       />
 
-      <GameDevelopmentSection className={firstFullPageClass} />
+      <GameDevelopmentSection isVisible={visibleSection === "GAME_DEV"} />
 
-      {timelinePositionX > 400 && <p className="scroll-to-begin">Scroll to begin</p>}
+      {x > 400 && <p className="scroll-to-begin">Scroll to begin</p>}
 
       <div className="skip-to">
         <h2>Skip To</h2>
+        <button onClick={() => skipTo("FINANCE_TRACKER")}>Finance Tracker</button>
         <button onClick={() => skipTo("GAME_DEV")}>Game Dev</button>
       </div>
     </div>

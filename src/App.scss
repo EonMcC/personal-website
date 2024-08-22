@@ -8,15 +8,19 @@ header {
 
 .app-header {
   padding: 24px;
-  transition: 1s all;
+  transition: .5s all ease-in;
+  opacity: 1;
   
   :last-child {
     opacity: .5;
     letter-spacing: .01rem;
   }
 
+  // &--hidden {
+  //   transform: translateX(-500px);
+  // }
   &--hidden {
-    transform: translateX(-500px);
+    opacity: 0;
   }
 
 }
@@ -191,6 +195,8 @@ header {
   text-align: center;
   width: 300px;
   animation: opacity-pulse 1s ease-in infinite alternate;
+  cursor: default;
+  user-select: none;
 }
 
 @keyframes opacity-pulse {
