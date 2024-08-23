@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './App.scss';
 import { isBetween } from './helpers/helperFunctions';
-import { Section, sections } from './data/sections';
+import { sections } from './data/sections';
 import { ReactComponent as FinanceTrackerIcon } from './assets/timeline-icons/financeTracker.svg';
 import { ReactComponent as GameDevIcon } from './assets/timeline-icons/gameDev.svg';
 import { ReactComponent as PvpIcon } from './assets/timeline-icons/pvp.svg';
@@ -46,13 +46,13 @@ function App() {
         changeHeader(section);
         if (section.offsetY) setYVH('80vh');
         else setYVH('55vh');        
-        break;
+        return;
       }
-      changeHeader();
       setYVH('55vh');
       document.documentElement.style.setProperty('--strong', 'var(--text)');
       resetVisuals();
     }
+    changeHeader();
   }, [x])
 
   function changeHeader({title, subTitle} = {title: 'Iain McClafferty', subTitle: 'Developer | Designer | Storyteller'}) {
