@@ -24,7 +24,7 @@ export const sections = [
     subTitle: ESubTitle.PERSONAL_PROJECT,
     color: '#F2994A',
     offsetY: true,
-    xRange: [325, 400]
+    xRange: [300, 375]
   },
   {
     name: 'FINANCE_TRACKER',
