@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './App.scss';
-import GameDevelopmentSection from './sections/game-development/GameDevelopmentPage';
-import FinanceTrackerSection from './sections/finance-tracker/FinanceTrackerSection';
 import { isBetween } from './helpers/helperFunctions';
 import { Section, sections } from './data/sections';
 import { ReactComponent as FinanceTrackerIcon } from './assets/timeline-icons/financeTracker.svg';
@@ -19,20 +17,9 @@ import { ReactComponent as ShipIcon } from './assets/timeline-icons/ship.svg';
 import { ReactComponent as PhotographyIcon } from './assets/timeline-icons/photography.svg';
 import { ReactComponent as EducationIcon } from './assets/timeline-icons/education.svg';
 import { ReactComponent as BornIcon } from './assets/timeline-icons/born.svg';
-import AboutMeSection from './sections/about-me/AboutMe';
-import PvPHealthSection from './sections/pvp-health/PvPHealthSection';
-import AmiSection from './sections/ami/AmiSection';
 import useScreenSize from './hooks/useScreenSize';
-import PooTimerSection from './sections/poo-timer/PooTimer';
-import AfsSection from './sections/afs/AfsSection';
-import CodeclanSection from './sections/codeclan/CodeclanSection';
-import FireServiceSection from './sections/fire-service/FireServiceSection';
-import FamilySection from './sections/family/FamilySection';
-import SgnSection from './sections/sgn/SgnSection';
-import VariousSection from './sections/various/VariousSection';
-import StevensonSection from './sections/stevenson/StevensonSection';
-import SchoolSection from './sections/school/SchoolSections';
-import BornSection from './sections/born/Born';
+import SkipTo from './skip-to/SkipTo';
+import Sections from './sections/Sections';
 
 function App() {
 
@@ -76,7 +63,7 @@ function App() {
           title,
           subTitle
         })
-        setHeaderClass('app-header');
+        setHeaderClass('app-header app=header--hidden');
       }, 500)
     }
   }
@@ -87,7 +74,6 @@ function App() {
   }
 
   const onWheel = (e: any) => {
-    console.log('x', x + 25)
     if (e) {
       if (x < -2050 && e.deltaY > 0) return;
       if (e.deltaY < 0 && x < 450) setX(x + 25);
@@ -326,42 +312,11 @@ function App() {
         }}
       />
 
-      <AboutMeSection isVisible={visibleSection === "ABOUT_ME"} />
-      <FinanceTrackerSection isVisible={visibleSection === "FINANCE_TRACKER"} />
-      <GameDevelopmentSection isVisible={visibleSection === "GAME_DEV"} />
-      <PvPHealthSection isVisible={visibleSection === "PVP"} />
-      <AmiSection isVisible={visibleSection === "AMI"} />
-      <PooTimerSection isVisible={visibleSection === "POO_TIMER"} />
-      <AfsSection isVisible={visibleSection === "AFS"} />
-      <CodeclanSection isVisible={visibleSection === "CODECLAN"} />
-      <FireServiceSection isVisible={visibleSection === "FIRE"} />
-      <FamilySection isVisible={visibleSection === "FAMILY"} />
-      <SgnSection isVisible={visibleSection === "SGN"} />
-      <VariousSection isVisible={visibleSection === "VARIOUS"} />
-      <StevensonSection isVisible={visibleSection === "STEVENSON"} />
-      <SchoolSection isVisible={visibleSection === "SCHOOL"} />
-      <BornSection isVisible={visibleSection === "BORN"} />
+      <Sections visibleSection={visibleSection} />
 
       {x > 400 && <p className="scroll-to-begin">Scroll to begin</p>}
 
-      <div className="skip-to">
-        {/* <h2>Skip To</h2> */}
-        <div className="skip-to__entry-cont">
-          {sections.map((section: Section) => {
-            if (section.name !== "STOP") {
-              return (
-                <div
-                  className="skip-to__entry-cont__entry"
-                  onClick={() => skipTo(section.name)}
-                >
-                  <p>{section.title}</p>
-                  <p>{section.subTitle}</p>
-                </div>
-                )
-              }
-            })}
-        </div>
-      </div>
+      <SkipTo skipTo={skipTo}/>
     </div>
   );
 }

@@ -136,6 +136,6 @@ export const sections = [
     subTitle: ESubTitle.ME,
     color: '#F2994A',
     offsetY: false,
-    xRange: [-2200, -1975]
+    xRange: [-2075, -1975]
   }
 ]

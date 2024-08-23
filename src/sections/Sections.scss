@@ -1,0 +1,41 @@
+.section {
+  position: absolute;
+  top: 15%;
+  left: 100vw;
+  transition: 1s all ease-out;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 24px;
+  min-height: 340px;
+
+  &--visible {
+    left: 24px;
+  }
+
+  &--large {
+    top: 25%;
+  }
+
+  &__text {
+    position: relative;
+    max-width: 50%;
+  
+    p {
+      margin-bottom: 12px;
+  
+      &:last-child {
+        margin-top: 24px;
+        opacity: .5;
+      }
+    }
+
+    img {
+      position: absolute;
+      top: -40px;
+      left: -40px;
+      opacity: .1;
+    }
+  }
+}
