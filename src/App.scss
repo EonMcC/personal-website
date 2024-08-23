@@ -27,7 +27,7 @@ header {
   background-color: var(--text);
   border-radius: 50%;
   position: absolute;
-  width: 3000px;
+  width: 2550px;
   transition: all 1s;
   display: flex;
   align-items: end;
@@ -260,6 +260,7 @@ header {
   }
 
   &__text {
+    position: relative;
     max-width: 50%;
   
     p {
@@ -269,6 +270,13 @@ header {
         margin-top: 24px;
         opacity: .5;
       }
+    }
+
+    img {
+      position: absolute;
+      top: -40px;
+      left: -40px;
+      opacity: .1;
     }
   }
 }

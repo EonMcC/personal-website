@@ -9,12 +9,30 @@ import { ReactComponent as GameDevIcon } from './assets/timeline-icons/gameDev.s
 import { ReactComponent as PvpIcon } from './assets/timeline-icons/pvp.svg';
 import { ReactComponent as HiIcon } from './assets/timeline-icons/hi.svg';
 import { ReactComponent as AmiIcon } from './assets/timeline-icons/ami.svg';
-import { ReactComponent as StopIcon } from './assets/timeline-icons/stop.svg';
+import { ReactComponent as PooTimerIcon } from './assets/timeline-icons/pooTimer.svg';
+import { ReactComponent as AfsIcon } from './assets/timeline-icons/afs.svg';
+import { ReactComponent as CodeclanIcon } from './assets/timeline-icons/codeclan.svg';
+import { ReactComponent as FireServiceIcon } from './assets/timeline-icons/fireService.svg';
+import { ReactComponent as FamilyIcon } from './assets/timeline-icons/family.svg';
+import { ReactComponent as SgnIcon } from './assets/timeline-icons/sgn.svg';
+import { ReactComponent as ShipIcon } from './assets/timeline-icons/ship.svg';
+import { ReactComponent as PhotographyIcon } from './assets/timeline-icons/photography.svg';
+import { ReactComponent as EducationIcon } from './assets/timeline-icons/education.svg';
+import { ReactComponent as BornIcon } from './assets/timeline-icons/born.svg';
 import AboutMeSection from './sections/about-me/AboutMe';
 import PvPHealthSection from './sections/pvp-health/PvPHealthSection';
 import AmiSection from './sections/ami/AmiSection';
-import StopSection from './sections/stop/StopSections';
 import useScreenSize from './hooks/useScreenSize';
+import PooTimerSection from './sections/poo-timer/PooTimer';
+import AfsSection from './sections/afs/AfsSection';
+import CodeclanSection from './sections/codeclan/CodeclanSection';
+import FireServiceSection from './sections/fire-service/FireServiceSection';
+import FamilySection from './sections/family/FamilySection';
+import SgnSection from './sections/sgn/SgnSection';
+import VariousSection from './sections/various/VariousSection';
+import StevensonSection from './sections/stevenson/StevensonSection';
+import SchoolSection from './sections/school/SchoolSections';
+import BornSection from './sections/born/Born';
 
 function App() {
 
@@ -71,7 +89,7 @@ function App() {
   const onWheel = (e: any) => {
     console.log('x', x + 25)
     if (e) {
-      if (x < -550 && e.deltaY > 0) return;
+      if (x < -2050 && e.deltaY > 0) return;
       if (e.deltaY < 0 && x < 450) setX(x + 25);
       else if (e.deltaY > 0) setX(x - 25);
     }
@@ -178,16 +196,125 @@ function App() {
         </div>
 
         <div className="timeline__entry">
-          <StopIcon
+          <PooTimerIcon
             className={
-              visibleSection === "STOP"
+              visibleSection === "POO_TIMER"
               ? "timeline__entry__icon timeline__entry__icon--visible"
               : "timeline__entry__icon"
             }
             fill={currentColor}
           />
-          <p>The Past</p>
+          <p>Aug '20</p>
         </div>
+
+        <div className="timeline__entry">
+          <AfsIcon
+            className={
+              visibleSection === "AFS"
+              ? "timeline__entry__icon timeline__entry__icon--visible"
+              : "timeline__entry__icon"
+            }
+            fill={currentColor}
+          />
+          <p>May '20</p>
+        </div>
+
+        <div className="timeline__entry">
+          <CodeclanIcon
+            className={
+              visibleSection === "CODECLAN"
+              ? "timeline__entry__icon timeline__entry__icon--visible"
+              : "timeline__entry__icon"
+            }
+            fill={currentColor}
+          />
+          <p>Aug '19</p>
+        </div>
+
+        <div className="timeline__entry">
+          <FireServiceIcon
+            className={
+              visibleSection === "FIRE"
+              ? "timeline__entry__icon timeline__entry__icon--visible"
+              : "timeline__entry__icon"
+            }
+            fill={currentColor}
+          />
+          <p>May '19</p>
+        </div>
+
+        <div className="timeline__entry">
+          <FamilyIcon
+            className={
+              visibleSection === "FIRE"
+              ? "timeline__entry__icon timeline__entry__icon--visible"
+              : "timeline__entry__icon"
+            }
+            fill={currentColor}
+          />
+          <p>Aug '17</p>
+        </div>
+
+        <div className="timeline__entry">
+          <SgnIcon
+            className={
+              visibleSection === "SGN"
+              ? "timeline__entry__icon timeline__entry__icon--visible"
+              : "timeline__entry__icon"
+            }
+            fill={currentColor}
+          />
+          <p>Jul '16</p>
+        </div>
+
+        <div className="timeline__entry">
+          <ShipIcon
+            className={
+              visibleSection === "VARIOUS"
+              ? "timeline__entry__icon timeline__entry__icon--visible"
+              : "timeline__entry__icon"
+            }
+            fill={currentColor}
+          />
+          <p>2010</p>
+        </div>
+
+        <div className="timeline__entry">
+          <PhotographyIcon
+            className={
+              visibleSection === "STEVENSON"
+              ? "timeline__entry__icon timeline__entry__icon--visible"
+              : "timeline__entry__icon"
+            }
+            fill={currentColor}
+          />
+          <p>2006</p>
+        </div>
+
+        <div className="timeline__entry">
+          <EducationIcon
+            className={
+              visibleSection === "SCHOOL"
+              ? "timeline__entry__icon timeline__entry__icon--visible"
+              : "timeline__entry__icon"
+            }
+            fill={currentColor}
+          />
+          <p>1993</p>
+        </div>
+
+        <div className="timeline__entry">
+          <BornIcon
+            className={
+              visibleSection === "BORN"
+              ? "timeline__entry__icon timeline__entry__icon--visible"
+              : "timeline__entry__icon"
+            }
+            fill={currentColor}
+          />
+          <p>May '88</p>
+        </div>
+
 
       </div>
       
@@ -204,7 +331,16 @@ function App() {
       <GameDevelopmentSection isVisible={visibleSection === "GAME_DEV"} />
       <PvPHealthSection isVisible={visibleSection === "PVP"} />
       <AmiSection isVisible={visibleSection === "AMI"} />
-      <StopSection isVisible={visibleSection === "STOP"} />
+      <PooTimerSection isVisible={visibleSection === "POO_TIMER"} />
+      <AfsSection isVisible={visibleSection === "AFS"} />
+      <CodeclanSection isVisible={visibleSection === "CODECLAN"} />
+      <FireServiceSection isVisible={visibleSection === "FIRE"} />
+      <FamilySection isVisible={visibleSection === "FAMILY"} />
+      <SgnSection isVisible={visibleSection === "SGN"} />
+      <VariousSection isVisible={visibleSection === "VARIOUS"} />
+      <StevensonSection isVisible={visibleSection === "STEVENSON"} />
+      <SchoolSection isVisible={visibleSection === "SCHOOL"} />
+      <BornSection isVisible={visibleSection === "BORN"} />
 
       {x > 400 && <p className="scroll-to-begin">Scroll to begin</p>}
 
