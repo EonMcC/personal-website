@@ -36,6 +36,12 @@ header {
     margin-left: 125px;
     text-align: center;
     transform: translateY(25px);
+    cursor: pointer;
+
+    &:hover &__icon {
+      scale: 2;
+      transform-origin: bottom;
+    }
 
     &__icon {
       transition: 1s all;

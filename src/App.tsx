@@ -121,7 +121,10 @@ function App() {
         }}
       >
 
-        <div className="timeline__entry">
+        <div
+          className="timeline__entry"
+          onClick={() => skipTo("ABOUT_ME")}
+        >
           <HiIcon
             className={
               visibleSection === "ABOUT_ME"
@@ -133,7 +136,10 @@ function App() {
           <p>Today</p>
         </div>
 
-        <div className="timeline__entry">
+        <div
+          className="timeline__entry"
+          onClick={() => skipTo("FINANCE_TRACKER")}
+        >
           <FinanceTrackerIcon
             className={
               visibleSection === "FINANCE_TRACKER"
@@ -145,7 +151,10 @@ function App() {
           <p>Aug '24</p>
         </div>
 
-        <div className="timeline__entry">
+        <div
+          className="timeline__entry"
+          onClick={() => skipTo("GAME_DEV")}
+        >
           <GameDevIcon
             className={
               visibleSection === "GAME_DEV"
@@ -157,7 +166,10 @@ function App() {
           <p>June '24</p>
         </div>
 
-        <div className="timeline__entry">
+        <div
+          className="timeline__entry"
+          onClick={() => skipTo("PVP")}
+        >
           <PvpIcon
             className={
               visibleSection === "PVP"
@@ -169,7 +181,10 @@ function App() {
           <p>Jan '24</p>
         </div>
 
-        <div className="timeline__entry">
+        <div
+          className="timeline__entry"
+          onClick={() => skipTo("AMI")}
+        >
           <AmiIcon
             className={
               visibleSection === "AMI"
@@ -181,7 +196,10 @@ function App() {
           <p>Oct '21</p>
         </div>
 
-        <div className="timeline__entry">
+        <div
+          className="timeline__entry"
+          onClick={() => skipTo("POO_TIMER")}
+        >
           <PooTimerIcon
             className={
               visibleSection === "POO_TIMER"
@@ -193,7 +211,10 @@ function App() {
           <p>Aug '20</p>
         </div>
 
-        <div className="timeline__entry">
+        <div
+          className="timeline__entry"
+          onClick={() => skipTo("AFS")}
+        >
           <AfsIcon
             className={
               visibleSection === "AFS"
@@ -205,7 +226,10 @@ function App() {
           <p>May '20</p>
         </div>
 
-        <div className="timeline__entry">
+        <div
+          className="timeline__entry"
+          onClick={() => skipTo("CODECLAN")}
+        >
           <CodeclanIcon
             className={
               visibleSection === "CODECLAN"
@@ -217,7 +241,10 @@ function App() {
           <p>Aug '19</p>
         </div>
 
-        <div className="timeline__entry">
+        <div
+          className="timeline__entry"
+          onClick={() => skipTo("FIRE")}
+        >
           <FireServiceIcon
             className={
               visibleSection === "FIRE"
@@ -229,10 +256,13 @@ function App() {
           <p>May '19</p>
         </div>
 
-        <div className="timeline__entry">
+        <div
+          className="timeline__entry"
+          onClick={() => skipTo("FAMILY")}
+        >
           <FamilyIcon
             className={
-              visibleSection === "FIRE"
+              visibleSection === "FAMILY"
               ? "timeline__entry__icon timeline__entry__icon--visible"
               : "timeline__entry__icon"
             }
@@ -241,7 +271,10 @@ function App() {
           <p>Aug '17</p>
         </div>
 
-        <div className="timeline__entry">
+        <div
+          className="timeline__entry"
+          onClick={() => skipTo("SGN")}
+        >
           <SgnIcon
             className={
               visibleSection === "SGN"
@@ -253,7 +286,10 @@ function App() {
           <p>Jul '16</p>
         </div>
 
-        <div className="timeline__entry">
+        <div
+          className="timeline__entry"
+          onClick={() => skipTo("VARIOUS")}
+        >
           <ShipIcon
             className={
               visibleSection === "VARIOUS"
@@ -265,7 +301,10 @@ function App() {
           <p>2010</p>
         </div>
 
-        <div className="timeline__entry">
+        <div
+          className="timeline__entry"
+          onClick={() => skipTo("STEVENSON")}
+        >
           <PhotographyIcon
             className={
               visibleSection === "STEVENSON"
@@ -277,7 +316,10 @@ function App() {
           <p>2006</p>
         </div>
 
-        <div className="timeline__entry">
+        <div
+          className="timeline__entry"
+          onClick={() => skipTo("SCHOOL")}
+        >
           <EducationIcon
             className={
               visibleSection === "SCHOOL"
@@ -289,7 +331,10 @@ function App() {
           <p>1993</p>
         </div>
 
-        <div className="timeline__entry">
+        <div
+          className="timeline__entry"
+          onClick={() => skipTo("BORN")}
+        >
           <BornIcon
             className={
               visibleSection === "BORN"
