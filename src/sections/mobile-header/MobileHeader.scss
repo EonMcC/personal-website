@@ -1,0 +1,48 @@
+.header {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  transition: all 1s;
+  width: 100vw;
+  height: 100vh;
+
+  &--hidden {
+    left: -100vw;
+  }
+
+  h1 {
+    font-weight: 100;
+    font-size: 15rem;
+  }
+
+  .sub-header {
+    position: absolute;
+    rotate: 90deg;
+    right: -178px;
+    bottom: 255px;
+  }
+
+  &__underline {
+    position: absolute;
+    display: inline;
+    transition: all 1s;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 3rem;
+      left: 0;
+      height: 34px;
+      width: 100%;
+      background-color: #F2994A;
+      z-index: -1;
+    }
+
+    &--small {
+      left: -100vw;
+      position: fixed;
+      transition: all 1s;
+      font-size: 4rem;
+    }
+  }
+}

@@ -1,39 +1,63 @@
-#app {
-  height: calc(100vh - 17px);
-}
+#mobile-app {
+  position: relative;
+  height: 400vh;
+  overflow: hidden;
 
-header {
-  font-weight: 100;
-}
-
-.app-header {
-  padding: 24px;
-  transition: .5s all ease-in;
-  opacity: 1;
-  
-  :last-child {
-    opacity: .7;
-    letter-spacing: .01rem;
+  #marker {
+    width: 4px;
+    height: 4px;
+    background: purple;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10;
   }
 
-  &--hidden {
-    opacity: 0;
-  }
+  .header2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: all 1s;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
 
+    &--hidden {
+      left: -100vw;
+    }
+
+    h2 {
+      font-size: 4rem;
+    }
+
+    svg {
+      path {
+        stroke: inherit;
+      }
+    }
+  }
 }
 
-.timeline {
+.mobile-timeline {
+  position: fixed;
+  left: 20%;
+  top: 100px;
   height: 2px;
   background-color: var(--text);
   border-radius: 50%;
-  position: absolute;
-  width: 2550px;
+  width: 2450px;
   transition: all 1s;
   display: flex;
   align-items: end;
 
+  &--hidden {
+    left: 100vw;
+  }
+
   &__entry {
-    margin-left: 125px;
+    margin-left: 75px;
     text-align: center;
     transform: translateY(25px);
     cursor: pointer;
@@ -69,18 +93,22 @@ header {
   }
 }
 
-.timeline-pointer {
+.mobile-timeline-pointer {
   position: fixed;
-  top: calc(55vh - 16px);
+  top: 85px;
+  left: 18%;
   height: 32px;
   width: 32px;
   background-color: var(--text);
   border-radius: 50%;
-  left: 450px;
   background-color: var(--background);
   border: 2px solid var(--text);
   animation: pulse 3s ease-in infinite;
   transition: all 1s;
+
+  &--hidden {
+    left: 105vw;
+  }
 
   &::before {
     content: "";
@@ -108,54 +136,5 @@ header {
     background-color: var(--background);
     border: 2px solid var(--text);
     border-color: inherit;
-  }
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1)
-  }
-  50% {
-    transform: scale(1.1)
-  }
-  100% {
-    transform: scale(1)
-  }
-}
-
-.scroll-to-begin {
-  opacity: .25;
-  font-size: 4rem;
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-weight: 100;
-  text-align: center;
-  width: 300px;
-  animation: opacity-pulse 1s ease-in infinite alternate;
-  cursor: default;
-  user-select: none;
-}
-
-@keyframes opacity-pulse {
-  0% {
-    opacity: .25
-  }
-  100% {
-    opacity: .75
-  }
-}
-
-.screen-too-small {
-  margin-top: 10%;
-  text-align: center;
-
-  h2 {
-    margin-bottom: 24px;
-  }
-
-  p {
-    margin-bottom: 8px;
   }
 }

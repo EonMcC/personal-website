@@ -15,16 +15,27 @@ export type Section = {
   color: string;
   offsetY: boolean;
   xRange: number[];
+  xPosition: number;
 }
 
 export const sections = [
+  {
+    name: 'MOBILE_HEADER',
+    title: '',
+    subTitle: ESubTitle.ME,
+    color: 'var(--text)',
+    offsetY: false,
+    xRange: [500, 500],
+    xPosition: 24
+  },
   {
     name: 'ABOUT_ME',
     title: 'About me',
     subTitle: ESubTitle.PERSONAL_PROJECT,
     color: '#F2994A',
     offsetY: true,
-    xRange: [300, 375]
+    xRange: [300, 375],
+    xPosition: -60
   },
   {
     name: 'FINANCE_TRACKER',
@@ -32,7 +43,8 @@ export const sections = [
     subTitle: ESubTitle.PERSONAL_PROJECT,
     color: '#C0D684',
     offsetY: false,
-    xRange: [150, 200]
+    xRange: [150, 200],
+    xPosition: -164
   },
   {
     name: 'GAME_DEV',
@@ -40,7 +52,8 @@ export const sections = [
     subTitle: ESubTitle.HOBBY,
     color: '#4E8BBF',
     offsetY: true,
-    xRange: [-50, 25]
+    xRange: [-50, 25],
+    xPosition: -320
   },
   {
     name: 'PVP',
@@ -48,7 +61,8 @@ export const sections = [
     subTitle: ESubTitle.PERSONAL_PROJECT,
     color: '#2C9D5A',
     offsetY: true,
-    xRange: [-225, -150]
+    xRange: [-225, -150],
+    xPosition: -510
   },
   {
     name: 'AMI',
@@ -56,7 +70,8 @@ export const sections = [
     subTitle: ESubTitle.CAREER,
     color: '#85AED7',
     offsetY: false,
-    xRange: [-375, -250]
+    xRange: [-375, -250],
+    xPosition: -660
   },
   {
     name: 'POO_TIMER',
@@ -64,7 +79,8 @@ export const sections = [
     subTitle: ESubTitle.PERSONAL_PROJECT,
     color: '#6B401D',
     offsetY: true,
-    xRange: [-550, -500]
+    xRange: [-550, -500],
+    xPosition: -850
   },
   {
     name: 'AFS',
@@ -72,7 +88,8 @@ export const sections = [
     subTitle: ESubTitle.CAREER,
     color: '#F6A727',
     offsetY: false,
-    xRange: [-700, -650]
+    xRange: [-700, -650],
+    xPosition: -1030
   },
   {
     name: 'CODECLAN',
@@ -80,7 +97,8 @@ export const sections = [
     subTitle: ESubTitle.EDUCATION,
     color: '#1A3445',
     offsetY: true,
-    xRange: [-900, -825]
+    xRange: [-900, -825],
+    xPosition: -1210
   },
   {
     name: 'FIRE',
@@ -88,7 +106,8 @@ export const sections = [
     subTitle: ESubTitle.EMPLOYMENT,
     color: '#C41230',
     offsetY: false,
-    xRange: [-1075, -1000]
+    xRange: [-1075, -1000],
+    xPosition: -1380
   },
   {
     name: 'FAMILY',
@@ -96,7 +115,8 @@ export const sections = [
     subTitle: ESubTitle.ME,
     color: '#DFC72D',
     offsetY: true,
-    xRange: [-1250, -1175]
+    xRange: [-1250, -1175],
+    xPosition: -1550
   },
   {
     name: 'SGN',
@@ -104,7 +124,8 @@ export const sections = [
     subTitle: ESubTitle.CAREER,
     color: '#EA5A0B',
     offsetY: false,
-    xRange: [-1400, -1350]
+    xRange: [-1400, -1350],
+    xPosition: -1720
   },
   {
     name: 'VARIOUS',
@@ -112,7 +133,8 @@ export const sections = [
     subTitle: ESubTitle.EMPLOYMENT,
     color: '#A91888',
     offsetY: false,
-    xRange: [-1550, -1500]
+    xRange: [-1550, -1500],
+    xPosition: -1860
   },
   {
     name: 'STEVENSON',
@@ -120,7 +142,8 @@ export const sections = [
     subTitle: ESubTitle.EDUCATION,
     color: '#162A49',
     offsetY: true,
-    xRange: [-1725, -1675]
+    xRange: [-1725, -1675],
+    xPosition: -2030
   },
   {
     name: 'SCHOOL',
@@ -128,7 +151,8 @@ export const sections = [
     subTitle: ESubTitle.EDUCATION,
     color: '#EB5757',
     offsetY: false,
-    xRange: [-1875, -1825]
+    xRange: [-1875, -1825],
+    xPosition: -2195
   },
   {
     name: 'BORN',
@@ -136,6 +160,7 @@ export const sections = [
     subTitle: ESubTitle.ME,
     color: '#F2994A',
     offsetY: false,
-    xRange: [-2075, -1975]
+    xRange: [-2075, -1975],
+    xPosition: -2355
   }
 ]

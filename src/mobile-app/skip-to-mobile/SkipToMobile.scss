@@ -1,0 +1,23 @@
+.skip-to-mobile {
+  background: rgb(10,87,118);
+  background: rgb(10,87,118);
+  background: linear-gradient(90deg, #f0f0f088 0%, var(--strong) 50%);
+  text-align: end;
+  top: 0;
+  min-height: 100vh;
+  padding-top: 24px;
+
+  p {
+    margin-top: 24px;
+  }
+  
+  h2 {
+    color: var(--background);
+  }
+
+  svg {
+    path {
+      stroke: inherit;
+    }
+  }
+}

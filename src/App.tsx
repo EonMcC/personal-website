@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.scss';
 import { isBetween } from './helpers/helperFunctions';
 import { sections } from './data/sections';
@@ -20,10 +20,9 @@ import { ReactComponent as BornIcon } from './assets/timeline-icons/born.svg';
 import useScreenSize from './hooks/useScreenSize';
 import SkipTo from './skip-to/SkipTo';
 import Sections from './sections/Sections';
+import MobileApp from './mobile-app/MobileApp';
 
 function App() {
-
-  const appRef = useRef<HTMLDivElement>(null);
 
   const {width, height} = useScreenSize();
 
@@ -91,19 +90,11 @@ function App() {
   }
 
   if (width < 965 || height < 800) {
-    return (
-      <div className="screen-too-small">
-        <h2>Work in Progress</h2>
-        <p>I'm sorry - this site is still a work in progress.</p>
-        <p>Currently, smaller screen sizes are not supported.</p>
-        <p>Please view this website on a screen size greater than <strong>965px x 800px</strong>.</p>
-        <p>Sorry for the inconvenience. Mobile support coming soon!</p>
-      </div>
-    )
+    return <MobileApp />
   }
 
   return (
-    <div id="app" ref={appRef} onWheel={onWheel}>
+    <div id="app" onWheel={onWheel}>
       <header
         className={headerClass}
         style={{color: currentColor}}

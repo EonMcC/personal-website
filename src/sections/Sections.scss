@@ -39,3 +39,35 @@
     }
   }
 }
+
+.mobile-section {
+  position: fixed;
+  left: 100vw;
+  top: 150px;
+  transition: all .7s;
+  width: 100%;
+  padding: 0 24px;
+
+  &--visible {
+    left: 0;
+  }
+
+  img {
+    position: relative;
+    width: 70%;
+    left: 50%;
+    translate: -50%;
+    margin-bottom: 24px;
+  }
+
+  &__text {
+    p {
+      margin-bottom: 12px;
+
+      &:last-child {
+        margin-top: 24px;
+        opacity: .5;
+      }
+    }
+  }
+}
