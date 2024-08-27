@@ -62,7 +62,7 @@ const MobileApp = () => {
         if (diff > 50) {
           setStartToHide(true);
           setCurrentSectionIndex((prev: any) => prev < sections.length - 1 ? prev + 1 : prev);
-          setTimeout(() => setStartToHide(false), 500)  ;        
+          setTimeout(() => setStartToHide(false), 500);        
         }
         if (diff < -50) {
           setStartToHide(true);
@@ -88,7 +88,9 @@ const MobileApp = () => {
   }, [currentSectionIndex])
 
   function skipTo(index: number) {
+    setStartToHide(true);
     setCurrentSectionIndex(index);
+    setTimeout(() => setStartToHide(false), 500);     
     setShowSkipTo(false);
     setAllowSwipe(true);
   }
