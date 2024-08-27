@@ -79,10 +79,10 @@ const MobileApp = () => {
   }, [allowSwipe])
 
   useEffect(() => {
+    setX(sections[currentSectionIndex].xPosition!);
     setTimeout(() => {
       setVisibleSection(sections[currentSectionIndex].name);
       setCurrentColor(sections[currentSectionIndex].color);
-      setX(sections[currentSectionIndex].xPosition!);
       document.documentElement.style.setProperty('--primary', sections[currentSectionIndex].color);
     }, 300)
   }, [currentSectionIndex])
