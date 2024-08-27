@@ -318,6 +318,11 @@ const MobileApp = () => {
         }
         style={{borderColor: currentColor}}
       />
+      <SkipToMobile
+        isVisible={showSkipTo}
+        skipTo={skipTo}
+        close={onBurgerClick}
+      />
 
       <MobileHeader isVisible={visibleSection === "MOBILE_HEADER"} />
       {visibleSection === "ABOUT_ME" && <AboutMeMobileSection startToHide={startToHide} />}
@@ -336,11 +341,6 @@ const MobileApp = () => {
       {visibleSection === "SCHOOL" && <SchoolMobileSection startToHide={startToHide} />}
       {visibleSection === "BORN" && <BornMobileSection startToHide={startToHide} />}
 
-      <SkipToMobile
-        isVisible={showSkipTo}
-        skipTo={skipTo}
-        close={onBurgerClick}
-      />
     </div>
   )
 }
