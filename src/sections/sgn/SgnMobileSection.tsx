@@ -18,7 +18,7 @@ const SgnMobileSection: React.FC<{
 
   return (
     <section className={classList}>
-      <h2 style={{color: "var(--primary)"}}>SGN</h2>
+      <h2 style={{color: "var(--primary)"}}>SGN - Scotia Gas Networks</h2>
       <h3 style={{color: "var(--primary)"}}>Career Employment</h3>
 
       <img

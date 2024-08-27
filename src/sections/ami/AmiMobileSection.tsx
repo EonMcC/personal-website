@@ -13,7 +13,7 @@ const AmiMobileSection: React.FC<{startToHide: boolean}> = ({startToHide}) => {
 
   return (
     <section className={classList}>
-      <h2 style={{color: "var(--primary)"}}>AMI</h2>
+      <h2 style={{color: "var(--primary)"}}>AMI - Air Menzies International</h2>
 
       <h3 style={{color: "var(--primary)"}}>Career Employment</h3>
 

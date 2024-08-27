@@ -25,7 +25,7 @@ const SgnSection: React.FC<{
       <img
         src={sgn}
         alt="SGN Logo"
-        style={{transform: "translateY(-40px)"}}
+        style={{transform: "translateY(-40px)", maxWidth: "30%"}}
       />
     </section>
   )

@@ -21,7 +21,7 @@ const AfsSection: React.FC<{isVisible: boolean}> = ({isVisible}) => {
       <img
         src={afs}
         alt="AFS Logo"
-        style={{translate: "0 -35%"}}
+        style={{translate: "0 -35%", maxWidth: "25%"}}
       />
     </section>
   )

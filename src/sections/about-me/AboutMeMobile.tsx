@@ -18,7 +18,7 @@ const AboutMeMobileSection: React.FC<{startToHide: boolean}> = ({startToHide}) =
       <h2 style={{color: "var(--primary)"}}>About me</h2>
       <h3> </h3>
 
-      <img src={me} alt="Me" />
+      <img src={me} alt="Me" style={{width: "100%"}}/>
       
       <div className="mobile-section__text">
         <p>That up there is me, hello!</p>

@@ -24,7 +24,7 @@ const AmiSection: React.FC<{
       <img
         src={ami}
         alt="AMI Logo"
-        style={{transform: "translateY(-85px)"}}
+        style={{transform: "translateY(-85px)", maxWidth: "25%"}}
       />
     </section>
   )
