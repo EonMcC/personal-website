@@ -15,8 +15,8 @@ const SkipToMobile: React.FC<{
   return (
     <div className={
       isVisible
-        ? "skip-to-mobile mobile-section skip-to-mobile mobile-section--visible"
-        : "skip-to-mobile mobile-section"
+        ? "skip-to-mobile skip-to-mobile--visible"
+        : "skip-to-mobile"
     }>
       <BurgerIcon
         stroke="var(--background)"

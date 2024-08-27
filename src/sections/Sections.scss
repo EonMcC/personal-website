@@ -41,15 +41,22 @@
 }
 
 .mobile-section {
-  position: fixed;
-  left: 100vw;
-  top: 150px;
   transition: all .7s;
   width: 100%;
   padding: 0 24px;
+  margin-top: 100vh;
+  margin-bottom: 80px;
 
   &--visible {
-    left: 0;
+    margin-top: 150px;
+  }
+
+  h2 {
+    text-align: end;
+  }
+  h3 {
+    text-align: end;
+    margin-bottom: 24px;
   }
 
   img {

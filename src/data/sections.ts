@@ -59,7 +59,7 @@ export const sections = [
     name: 'PVP',
     title: 'PvP Health',
     subTitle: ESubTitle.PERSONAL_PROJECT,
-    color: '#2C9D5A',
+    color: '#fed173',
     offsetY: true,
     xRange: [-225, -150],
     xPosition: -510

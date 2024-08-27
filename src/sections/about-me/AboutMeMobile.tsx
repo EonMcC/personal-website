@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './AboutMe.scss';
 import me from '../../assets/images/me.png';
 
-const AboutMeMobileSection: React.FC<{isVisible: boolean}> = ({isVisible}) => {
+const AboutMeMobileSection: React.FC<{startToHide: boolean}> = ({startToHide}) => {
+
+  const [classList, setClassList] = useState('mobile-section');
+
+  useEffect(() => {
+    if (!startToHide) setClassList('mobile-section mobile-section--visible');
+    else setClassList('mobile-section');
+}, [startToHide])
 
   return (
-    <section
-      className={
-        isVisible
-          ? "mobile-section mobile-section--large mobile-section--visible"
-          : "mobile-section"
-      }
-    >
+    <section className={classList}>
+
+      <h2 style={{color: "var(--primary)"}}>About me</h2>
+      <h3> </h3>
+
       <img src={me} alt="Me" />
       
       <div className="mobile-section__text">
@@ -31,6 +36,7 @@ const AboutMeMobileSection: React.FC<{isVisible: boolean}> = ({isVisible}) => {
           >linkedin.com/in/iain-mcclafferty</a>
         </div>
       </div>
+
 
     </section>
   )

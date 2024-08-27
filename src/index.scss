@@ -28,12 +28,12 @@ h2 {
 }
 
 a {
-  color: #F2994A;
+  color: var(--primary);
   text-decoration: none;
 }
 
 strong {
   font-size: 1.8rem;
-  color: var(--strong);
+  color: var(--primary);
   font-weight: 700;
 }

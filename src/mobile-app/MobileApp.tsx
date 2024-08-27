@@ -21,10 +21,24 @@ import AboutMeMobileSection from '../sections/about-me/AboutMeMobile';
 import FinanceTrackerMobileSection from '../sections/finance-tracker/FinanceTrackerMobileSection';
 import MobileHeader from '../sections/mobile-header/MobileHeader';
 import SkipToMobile from './skip-to-mobile/SkipToMobile';
+import GameDevelopmentMobileSection from '../sections/game-development/GameDevelopmentMobileSection';
+import PvpHealthMobileSection from '../sections/pvp-health/PvPHealthMobileSection';
+import AmiMobileSection from '../sections/ami/AmiMobileSection';
+import PooTimerMobileSection from '../sections/poo-timer/PooTimerMobileSection';
+import AfsMobileSection from '../sections/afs/AfsMobileSection';
+import CodeclanMobileSection from '../sections/codeclan/CodeclanMobileSection';
+import FireServiceMobileSection from '../sections/fire-service/FireServiceMobileSections';
+import FamilyMobileSection from '../sections/family/FamilyMobileSection';
+import SgnMobileSection from '../sections/sgn/SgnMobileSection';
+import VariousMobileSection from '../sections/various/VariousMobileSections';
+import StevensonMobileSection from '../sections/stevenson/StevensonMobileSections';
+import SchoolMobileSection from '../sections/school/SchoolMobileSections';
+import BornMobileSection from '../sections/born/BornMobileSections';
 
 const MobileApp = () => {
 
   const [visibleSection, setVisibleSection] = useState('MOBILE_HEADER');
+  const [startToHide, setStartToHide] = useState(false);
   const [currentColor, setCurrentColor] = useState('var(--text)');
   const [x, setX] = useState(100);
   const [currentSectionIndex, setCurrentSectionIndex] = useState<any>(0);
@@ -35,19 +49,26 @@ const MobileApp = () => {
     document.addEventListener('touchstart', handleTouchStart, false);        
     document.addEventListener('touchend', handleTouchEnd, false);
     
-    var yDown: any = null;
+    var xDown: any = null;
 
     function handleTouchStart(evt:any) {
-      yDown = evt.touches[0].clientY;                                
+      xDown = evt.touches[0].clientX;                                
     };                                                
 
     function handleTouchEnd(e: any) {
-      console.log('allowSwipe', allowSwipe)
       if (allowSwipe) {
-        const yUp = e.changedTouches[0].clientY;
-        const diff = yDown - yUp;
-        if (diff > 20) setCurrentSectionIndex((prev: any) => prev < sections.length - 1 ? prev + 1 : prev);
-        if (diff < -20) setCurrentSectionIndex((prev: any) => prev > 0 ? prev - 1 : prev);
+        const xUp = e.changedTouches[0].clientX;
+        const diff = xDown - xUp;
+        if (diff > 50) {
+          setStartToHide(true);
+          setCurrentSectionIndex((prev: any) => prev < sections.length - 1 ? prev + 1 : prev);
+          setTimeout(() => setStartToHide(false), 500)  ;        
+        }
+        if (diff < -50) {
+          setStartToHide(true);
+          setCurrentSectionIndex((prev: any) => prev > 0 ? prev - 1 : prev);
+          setTimeout(() => setStartToHide(false), 500);
+        }
       }
     }                                                                                                             
 
@@ -62,7 +83,7 @@ const MobileApp = () => {
       setVisibleSection(sections[currentSectionIndex].name);
       setCurrentColor(sections[currentSectionIndex].color);
       setX(sections[currentSectionIndex].xPosition!);
-      document.documentElement.style.setProperty('--strong', sections[currentSectionIndex].color);
+      document.documentElement.style.setProperty('--primary', sections[currentSectionIndex].color);
     }, 300)
   }, [currentSectionIndex])
 
@@ -73,8 +94,8 @@ const MobileApp = () => {
   }
 
   function onBurgerClick() {
-    setShowSkipTo(true);
-    setAllowSwipe(false);
+    setShowSkipTo((prev) => !prev);
+    setAllowSwipe((prev) => !prev);
   }
 
   return (
@@ -91,196 +112,199 @@ const MobileApp = () => {
         />
       </header>
 
-      <div
-        className={visibleSection === "MOBILE_HEADER"  ? "mobile-timeline mobile-timeline--hidden" : "mobile-timeline"}
-        style={{
-          transform: `translateX(${x}px)`,
-          backgroundColor: currentColor
-        }}
-      >
-
-        <div className="mobile-timeline__entry">
-          <HiIcon
-            className={
-              visibleSection === "ABOUT_ME"
-              ? "mobile-timeline__entry__icon mobile-timeline__entry__icon--visible"
-              : "mobile-timeline__entry__icon"
-            }
-            fill={currentColor}
-          />
-          <p>Today</p>
-        </div>
-
-        <div className="mobile-timeline__entry">
-          <FinanceTrackerIcon
-            className={
-              visibleSection === "FINANCE_TRACKER"
-              ? "mobile-timeline__entry__icon mobile-timeline__entry__icon--visible"
-              : "mobile-timeline__entry__icon"
-            }
-            fill={currentColor}
-          />
-          <p>Aug '24</p>
-        </div>
-
+      <div className="mobile-timeline-bg">
         <div
-          className="timeline__entry"
+          className={visibleSection === "MOBILE_HEADER"  ? "mobile-timeline mobile-timeline--hidden" : "mobile-timeline"}
+          style={{
+            transform: `translateX(${x}px)`,
+            backgroundColor: currentColor
+          }}
         >
-          <GameDevIcon
-            className={
-              visibleSection === "GAME_DEV"
-              ? "mobile-timeline__entry__icon mobile-timeline__entry__icon--visible"
-              : "mobile-timeline__entry__icon"
-            }
-            fill={currentColor}
-          />
-          <p>June '24</p>
-        </div>
 
-        <div
-          className="timeline__entry"
-        >
-          <PvpIcon
-            className={
-              visibleSection === "PVP"
-              ? "mobile-timeline__entry__icon mobile-timeline__entry__icon--visible"
-              : "mobile-timeline__entry__icon"
-            }
-            fill={currentColor}
-          />
-          <p>Jan '24</p>
-        </div>
+          <div className="mobile-timeline__entry">
+            <HiIcon
+              className={
+                visibleSection === "ABOUT_ME"
+                ? "mobile-timeline__entry__icon mobile-timeline__entry__icon--visible"
+                : "mobile-timeline__entry__icon"
+              }
+              fill={currentColor}
+            />
+            <p>Today</p>
+          </div>
 
-        <div className="timeline__entry">
-          <AmiIcon
-            className={
-              visibleSection === "AMI"
-              ? "mobile-timeline__entry__icon mobile-timeline__entry__icon--visible"
-              : "mobile-timeline__entry__icon"
-            }
-            fill={currentColor}
-          />
-          <p>Oct '21</p>
-        </div>
+          <div className="mobile-timeline__entry">
+            <FinanceTrackerIcon
+              className={
+                visibleSection === "FINANCE_TRACKER"
+                ? "mobile-timeline__entry__icon mobile-timeline__entry__icon--visible"
+                : "mobile-timeline__entry__icon"
+              }
+              fill={currentColor}
+            />
+            <p>Aug '24</p>
+          </div>
 
-        <div className="timeline__entry">
-          <PooTimerIcon
-            className={
-              visibleSection === "POO_TIMER"
-              ? "mobile-timeline__entry__icon mobile-timeline__entry__icon--visible"
-              : "mobile-timeline__entry__icon"
-            }
-            fill={currentColor}
-          />
-          <p>Aug '20</p>
-        </div>
+          <div
+            className="timeline__entry"
+          >
+            <GameDevIcon
+              className={
+                visibleSection === "GAME_DEV"
+                ? "mobile-timeline__entry__icon mobile-timeline__entry__icon--visible"
+                : "mobile-timeline__entry__icon"
+              }
+              fill={currentColor}
+            />
+            <p>June '24</p>
+          </div>
 
-        <div className="timeline__entry">
-          <AfsIcon
-            className={
-              visibleSection === "AFS"
-              ? "mobile-timeline__entry__icon mobile-timeline__entry__icon--visible"
-              : "mobile-timeline__entry__icon"
-            }
-            fill={currentColor}
-          />
-          <p>May '20</p>
-        </div>
+          <div
+            className="timeline__entry"
+          >
+            <PvpIcon
+              className={
+                visibleSection === "PVP"
+                ? "mobile-timeline__entry__icon mobile-timeline__entry__icon--visible"
+                : "mobile-timeline__entry__icon"
+              }
+              fill={currentColor}
+            />
+            <p>Jan '24</p>
+          </div>
 
-        <div className="timeline__entry">
-          <CodeclanIcon
-            className={
-              visibleSection === "CODECLAN"
-              ? "mobile-timeline__entry__icon mobile-timeline__entry__icon--visible"
-              : "mobile-timeline__entry__icon"
-            }
-            fill={currentColor}
-          />
-          <p>Aug '19</p>
-        </div>
+          <div className="timeline__entry">
+            <AmiIcon
+              className={
+                visibleSection === "AMI"
+                ? "mobile-timeline__entry__icon mobile-timeline__entry__icon--visible"
+                : "mobile-timeline__entry__icon"
+              }
+              fill={currentColor}
+            />
+            <p>Oct '21</p>
+          </div>
 
-        <div className="timeline__entry">
-          <FireServiceIcon
-            className={
-              visibleSection === "FIRE"
-              ? "mobile-timeline__entry__icon mobile-timeline__entry__icon--visible"
-              : "mobile-timeline__entry__icon"
-            }
-            fill={currentColor}
-          />
-          <p>May '19</p>
-        </div>
+          <div className="timeline__entry">
+            <PooTimerIcon
+              className={
+                visibleSection === "POO_TIMER"
+                ? "mobile-timeline__entry__icon mobile-timeline__entry__icon--visible"
+                : "mobile-timeline__entry__icon"
+              }
+              fill={currentColor}
+            />
+            <p>Aug '20</p>
+          </div>
 
-        <div className="timeline__entry">
-          <FamilyIcon
-            className={
-              visibleSection === "FAMILY"
-              ? "mobile-timeline__entry__icon mobile-timeline__entry__icon--visible"
-              : "mobile-timeline__entry__icon"
-            }
-            fill={currentColor}
-          />
-          <p>Aug '17</p>
-        </div>
+          <div className="timeline__entry">
+            <AfsIcon
+              className={
+                visibleSection === "AFS"
+                ? "mobile-timeline__entry__icon mobile-timeline__entry__icon--visible"
+                : "mobile-timeline__entry__icon"
+              }
+              fill={currentColor}
+            />
+            <p>May '20</p>
+          </div>
 
-        <div className="timeline__entry">
-          <SgnIcon
-            className={
-              visibleSection === "SGN"
-              ? "mobile-timeline__entry__icon mobile-timeline__entry__icon--visible"
-              : "mobile-timeline__entry__icon"
-            }
-            fill={currentColor}
-          />
-          <p>Jul '16</p>
-        </div>
+          <div className="timeline__entry">
+            <CodeclanIcon
+              className={
+                visibleSection === "CODECLAN"
+                ? "mobile-timeline__entry__icon mobile-timeline__entry__icon--visible"
+                : "mobile-timeline__entry__icon"
+              }
+              fill={currentColor}
+            />
+            <p>Aug '19</p>
+          </div>
 
-        <div className="timeline__entry">
-          <ShipIcon
-            className={
-              visibleSection === "VARIOUS"
-              ? "mobile-timeline__entry__icon mobile-timeline__entry__icon--visible"
-              : "mobile-timeline__entry__icon"
-            }
-            fill={currentColor}
-          />
-          <p>2010</p>
-        </div>
+          <div className="timeline__entry">
+            <FireServiceIcon
+              className={
+                visibleSection === "FIRE"
+                ? "mobile-timeline__entry__icon mobile-timeline__entry__icon--visible"
+                : "mobile-timeline__entry__icon"
+              }
+              fill={currentColor}
+            />
+            <p>May '19</p>
+          </div>
 
-        <div className="timeline__entry">
-          <PhotographyIcon
-            className={
-              visibleSection === "STEVENSON"
-              ? "mobile-timeline__entry__icon mobile-timeline__entry__icon--visible"
-              : "mobile-timeline__entry__icon"
-            }
-            fill={currentColor}
-          />
-          <p>2006</p>
-        </div>
+          <div className="timeline__entry">
+            <FamilyIcon
+              className={
+                visibleSection === "FAMILY"
+                ? "mobile-timeline__entry__icon mobile-timeline__entry__icon--visible"
+                : "mobile-timeline__entry__icon"
+              }
+              fill={currentColor}
+            />
+            <p>Aug '17</p>
+          </div>
 
-        <div className="timeline__entry">
-          <EducationIcon
-            className={
-              visibleSection === "SCHOOL"
-              ? "mobile-timeline__entry__icon mobile-timeline__entry__icon--visible"
-              : "mobile-timeline__entry__icon"
-            }
-            fill={currentColor}
-          />
-          <p>1993</p>
-        </div>
+          <div className="timeline__entry">
+            <SgnIcon
+              className={
+                visibleSection === "SGN"
+                ? "mobile-timeline__entry__icon mobile-timeline__entry__icon--visible"
+                : "mobile-timeline__entry__icon"
+              }
+              fill={currentColor}
+            />
+            <p>Jul '16</p>
+          </div>
 
-        <div className="timeline__entry">
-          <BornIcon
-            className={
-              visibleSection === "BORN"
-              ? "mobile-timeline__entry__icon mobile-timeline__entry__icon--visible"
-              : "mobile-timeline__entry__icon"
-            }
-            fill={currentColor}
-          />
-          <p>May '88</p>
+          <div className="timeline__entry">
+            <ShipIcon
+              className={
+                visibleSection === "VARIOUS"
+                ? "mobile-timeline__entry__icon mobile-timeline__entry__icon--visible"
+                : "mobile-timeline__entry__icon"
+              }
+              fill={currentColor}
+            />
+            <p>2010</p>
+          </div>
+
+          <div className="timeline__entry">
+            <PhotographyIcon
+              className={
+                visibleSection === "STEVENSON"
+                ? "mobile-timeline__entry__icon mobile-timeline__entry__icon--visible"
+                : "mobile-timeline__entry__icon"
+              }
+              fill={currentColor}
+            />
+            <p>2006</p>
+          </div>
+
+          <div className="timeline__entry">
+            <EducationIcon
+              className={
+                visibleSection === "SCHOOL"
+                ? "mobile-timeline__entry__icon mobile-timeline__entry__icon--visible"
+                : "mobile-timeline__entry__icon"
+              }
+              fill={currentColor}
+            />
+            <p>1993</p>
+          </div>
+
+          <div className="timeline__entry">
+            <BornIcon
+              className={
+                visibleSection === "BORN"
+                ? "mobile-timeline__entry__icon mobile-timeline__entry__icon--visible"
+                : "mobile-timeline__entry__icon"
+              }
+              fill={currentColor}
+            />
+            <p>May '88</p>
+          </div>
+
         </div>
 
       </div>
@@ -294,13 +318,26 @@ const MobileApp = () => {
       />
 
       <MobileHeader isVisible={visibleSection === "MOBILE_HEADER"} />
-      <AboutMeMobileSection isVisible={visibleSection === "ABOUT_ME"} />
-      <FinanceTrackerMobileSection isVisible={visibleSection === "FINANCE_TRACKER"} />
+      {visibleSection === "ABOUT_ME" && <AboutMeMobileSection startToHide={startToHide} />}
+      {visibleSection === "FINANCE_TRACKER" && <FinanceTrackerMobileSection startToHide={startToHide} />}
+      {visibleSection === "GAME_DEV" && <GameDevelopmentMobileSection startToHide={startToHide} />}
+      {visibleSection === "PVP" && <PvpHealthMobileSection startToHide={startToHide} />}
+      {visibleSection === "AMI" && <AmiMobileSection startToHide={startToHide} />}
+      {visibleSection === "POO_TIMER" && <PooTimerMobileSection startToHide={startToHide} />}
+      {visibleSection === "AFS" && <AfsMobileSection startToHide={startToHide} />}
+      {visibleSection === "CODECLAN" && <CodeclanMobileSection startToHide={startToHide} />}
+      {visibleSection === "FIRE" && <FireServiceMobileSection startToHide={startToHide} />}
+      {visibleSection === "FAMILY" && <FamilyMobileSection startToHide={startToHide} />}
+      {visibleSection === "SGN" && <SgnMobileSection startToHide={startToHide} />}
+      {visibleSection === "VARIOUS" && <VariousMobileSection startToHide={startToHide} />}
+      {visibleSection === "STEVENSON" && <StevensonMobileSection startToHide={startToHide} />}
+      {visibleSection === "SCHOOL" && <SchoolMobileSection startToHide={startToHide} />}
+      {visibleSection === "BORN" && <BornMobileSection startToHide={startToHide} />}
 
       <SkipToMobile
         isVisible={showSkipTo}
         skipTo={skipTo}
-        close={() => setShowSkipTo(false)}
+        close={onBurgerClick}
       />
     </div>
   )

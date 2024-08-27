@@ -41,14 +41,14 @@ function App() {
       if (isBetween(x, section.xRange[0], section.xRange[1])) {
         setVisibleSection(section.name);
         setCurrentColor(section.color);
-        document.documentElement.style.setProperty('--strong', section.color);
+        document.documentElement.style.setProperty('--primary', section.color);
         changeHeader(section);
         if (section.offsetY) setYVH('80vh');
         else setYVH('55vh');        
         return;
       }
       setYVH('55vh');
-      document.documentElement.style.setProperty('--strong', 'var(--text)');
+      document.documentElement.style.setProperty('--primary', 'var(--text)');
       resetVisuals();
     }
     changeHeader();

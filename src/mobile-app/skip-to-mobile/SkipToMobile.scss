@@ -1,11 +1,20 @@
 .skip-to-mobile {
-  background: rgb(10,87,118);
-  background: rgb(10,87,118);
-  background: linear-gradient(90deg, #f0f0f088 0%, var(--strong) 50%);
+  position: absolute;
+  width: 100vw;
+  background: var(--background);
+  background: linear-gradient(90deg, #f0f0f088 0%, var(--primary) 50%);
   text-align: end;
   top: 0;
+  left: 100vw;
   min-height: 100vh;
   padding-top: 24px;
+  padding-right: 24px;
+  transition: left .7s;
+  z-index: 2;
+
+  &--visible {
+    left: 0;
+  }
 
   p {
     margin-top: 24px;

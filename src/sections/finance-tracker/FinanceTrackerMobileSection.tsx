@@ -1,24 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import financeTracker from '../../assets/images/financeTracker.png';
 
 const FinanceTrackerMobileSection: React.FC<{
-  isVisible: boolean;
+  startToHide: boolean;
 }> = ({
-  isVisible
+  startToHide
 }) => {
 
+  const [classList, setClassList] = useState('mobile-section');
+
+  useEffect(() => {
+      if (!startToHide) setClassList('mobile-section mobile-section--visible');
+      else setClassList('mobile-section');
+  }, [startToHide])
+
+
   return (
-    <section
-      className={
-        isVisible
-          ? "mobile-section mobile-section--visible"
-          : "mobile-section"
-      }
-    >
+    <section className={classList}>
+      <h2 style={{color: "var(--primary)"}}>Finance Tracker</h2>
+      <h3 style={{color: "var(--primary)"}}>Personal Project</h3>
+
       <img
         src={financeTracker}
         alt="Finance Tracker"
-        style={{width: 'fit-content'}}
+        style={{width: '30%'}}
       />
 
       <div className="mobile-section__text">

@@ -5,6 +5,7 @@
   transition: all 1s;
   width: 100vw;
   height: 100vh;
+  z-index: 2;
 
   &--hidden {
     left: -100vw;
@@ -12,20 +13,21 @@
 
   h1 {
     font-weight: 100;
-    font-size: 15rem;
+    font-size: 16vh;
   }
 
   .sub-header {
-    position: absolute;
-    rotate: 90deg;
-    right: -178px;
-    bottom: 255px;
+    // position: absolute;
+    // rotate: 90deg;
+    // right: -178px;
+    // bottom: 255px;
   }
 
   &__underline {
-    position: absolute;
+    position: relative;
     display: inline;
     transition: all 1s;
+    color: orange;
 
     &::before {
       content: '';
@@ -34,8 +36,9 @@
       left: 0;
       height: 34px;
       width: 100%;
-      background-color: #F2994A;
+      // background-color: #F2994A;
       z-index: -1;
+      border-radius: 10px;
     }
 
     &--small {
@@ -44,5 +47,41 @@
       transition: all 1s;
       font-size: 4rem;
     }
+  }
+
+  &__peak {
+    position: absolute;
+    height: 100vh;
+    top: 0;
+    left: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .swipe-to-begin {
+    opacity: .25;
+    font-size: 3rem;
+    position: absolute;
+    bottom: 10%;
+    font-weight: 100;
+    text-align: center;
+    width: 300px;
+    animation: bounce-left .7s ease-out infinite alternate;
+    cursor: default;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    transition: left 1s;
+  }
+}
+
+@keyframes bounce-left {
+  0% {
+    transform: translateX(2%);
+  }
+  100% {
+    transform: translateX(5%);
   }
 }

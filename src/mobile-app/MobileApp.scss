@@ -1,6 +1,5 @@
 #mobile-app {
   position: relative;
-  height: 400vh;
   overflow: hidden;
 
   #marker {
@@ -23,6 +22,8 @@
     align-items: center;
     justify-content: space-between;
     width: 100vw;
+    background: var(--background);
+    z-index: 1;
 
     &--hidden {
       left: -100vw;
@@ -38,6 +39,18 @@
       }
     }
   }
+}
+
+.mobile-timeline-bg {
+  height: 90px;
+  display: block;
+  position: fixed;
+  top: 61px;
+  width: 100%;
+  z-index: 1;
+  background-color: var(--background);
+  background: linear-gradient(0deg, transparent 0%, var(--background) 20%);
+
 }
 
 .mobile-timeline {
@@ -105,6 +118,7 @@
   border: 2px solid var(--text);
   animation: pulse 3s ease-in infinite;
   transition: all 1s;
+  z-index: 2;
 
   &--hidden {
     left: 105vw;
