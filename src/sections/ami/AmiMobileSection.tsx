@@ -6,6 +6,7 @@ const AmiMobileSection: React.FC<{startToHide: boolean}> = ({startToHide}) => {
   const [classList, setClassList] = useState('mobile-section');
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (!startToHide) setClassList('mobile-section mobile-section--visible');
     else setClassList('mobile-section');
   }, [startToHide])

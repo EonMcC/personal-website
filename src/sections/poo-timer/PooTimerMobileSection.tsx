@@ -10,8 +10,9 @@ const PooTimerMobileSection: React.FC<{
   const [classList, setClassList] = useState('mobile-section');
 
   useEffect(() => {
-      if (!startToHide) setClassList('mobile-section mobile-section--visible');
-      else setClassList('mobile-section');
+    window.scrollTo(0, 0);
+    if (!startToHide) setClassList('mobile-section mobile-section--visible');
+    else setClassList('mobile-section');
   }, [startToHide])
 
 
@@ -23,7 +24,7 @@ const PooTimerMobileSection: React.FC<{
       <img
         src={pooTimer}
         alt="Poo Timer"
-        style={{width: "80%"}}
+        style={{width: "100%"}}
       />
 
       <div className="mobile-section__text">

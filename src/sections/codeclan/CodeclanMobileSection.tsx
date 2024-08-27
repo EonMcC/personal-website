@@ -10,8 +10,9 @@ const CodeclanMobileSection: React.FC<{
   const [classList, setClassList] = useState('mobile-section');
 
   useEffect(() => {
-      if (!startToHide) setClassList('mobile-section mobile-section--visible');
-      else setClassList('mobile-section');
+    window.scrollTo(0, 0);
+    if (!startToHide) setClassList('mobile-section mobile-section--visible');
+    else setClassList('mobile-section');
   }, [startToHide])
 
 
