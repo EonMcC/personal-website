@@ -36,6 +36,15 @@ function App() {
   });
   const [headerClass, setHeaderClass] = useState('app-header');
 
+  document.body.onkeyup = function(e) {
+    if (e.key === " "
+      || e.code === "Space"
+      || e.code === "ArrowRight"
+    ) setX(prev => prev -  25);
+
+    if (e.code === "ArrowLeft") setX(prev => prev + 25);
+  }
+
   useEffect(() => {
     for (const section of sections) {
       if (isBetween(x, section.xRange[0], section.xRange[1])) {
