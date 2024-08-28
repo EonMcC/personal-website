@@ -1,6 +1,7 @@
 import React from 'react';
 import './SkipToMobile.scss';
 import { ReactComponent as BurgerIcon } from '../../assets/burger.svg';
+import DarkToggle from '../../components/DarkToggle';
 
 const SkipToMobile: React.FC<{
   isVisible: boolean, 
@@ -22,6 +23,9 @@ const SkipToMobile: React.FC<{
         stroke="var(--background)"
         onClick={close}
       />
+
+      <div className="skip-to-mobile__dark-toggle-cont"><DarkToggle /></div>
+
       <p>Career Employment</p>
         <h2 onClick={() => skipTo(5)}>AMI</h2>
         <h2 onClick={() => skipTo(7)}>AFS</h2>

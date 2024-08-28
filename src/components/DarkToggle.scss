@@ -1,0 +1,38 @@
+.dark-toggle {
+  width: 96px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--text);
+  border-radius: 23px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.toggle-btn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  transition: all .3s;
+
+  &__moon {
+    height: 16px;
+    width: 16px;
+  }
+
+  &__sun {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+.dark-btn--hidden {
+  transform: translateY(28px);
+}
+
+.light-btn--hidden {
+  transform: translateY(28px);
+}

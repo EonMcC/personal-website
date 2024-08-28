@@ -16,6 +16,12 @@
     left: 0;
   }
 
+  &__dark-toggle-cont {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 24px;
+  }
+
   p {
     margin-top: 24px;
   }

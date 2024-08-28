@@ -21,6 +21,7 @@ import useScreenSize from './hooks/useScreenSize';
 import SkipTo from './skip-to/SkipTo';
 import Sections from './sections/Sections';
 import MobileApp from './mobile-app/MobileApp';
+import DarkToggle from './components/DarkToggle';
 
 function App() {
 
@@ -362,6 +363,8 @@ function App() {
       {x > 400 && <p className="scroll-to-begin">Scroll to begin</p>}
 
       <SkipTo skipTo={skipTo}/>
+
+      <div className="dark-toggle-cont"><DarkToggle /></div>
     </div>
   );
 }

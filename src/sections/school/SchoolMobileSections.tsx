@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import school from '../../assets/images/school.png';
+import { ReactComponent as EducationIcon } from '../../assets/timeline-icons/education.svg';
 
 const SchoolMobileSection: React.FC<{
   startToHide: boolean;
@@ -21,10 +21,14 @@ const SchoolMobileSection: React.FC<{
       <h2 style={{color: "var(--primary)"}}>School</h2>
       <h3 style={{color: "var(--primary)"}}>Education</h3>
 
-      <img
-        src={school}
-        alt="School"
-        style={{width: '50%'}}
+      <EducationIcon
+        style={{
+          height: "150px",
+          width: "150px",
+          marginLeft: "50%",
+          transform: "translateX(-50%)",
+          marginBottom: "24px"
+        }}
       />
 
       <div className="mobile-section__text">

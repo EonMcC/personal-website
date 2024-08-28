@@ -1,5 +1,5 @@
 import React from 'react';
-import school from '../../assets/images/school.png';
+import { ReactComponent as EducationIcon } from '../../assets/timeline-icons/education.svg';
 
 const SchoolSection: React.FC<{
   isVisible: boolean;
@@ -22,10 +22,12 @@ const SchoolSection: React.FC<{
         <p>That was school.</p>
         <p>Various High School grades</p>
       </div>
-      <img
-        src={school}
-        alt="School"
-        style={{transform: "translateY(-40px)"}}
+      <EducationIcon
+        style={{
+          scale: "5",
+          marginLeft: "40px",
+          transform: "translateY(-10px)"
+        }}
       />
     </section>
   )

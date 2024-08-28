@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import hospital from '../../assets/images/hospital.png';
+import { ReactComponent as BornIcon } from '../../assets/timeline-icons/born.svg';
 
 const BornMobileSection: React.FC<{
   startToHide: boolean;
@@ -21,10 +21,14 @@ const BornMobileSection: React.FC<{
       <h2 style={{color: "var(--primary)"}}>Born</h2>
       <h3> </h3>
 
-      <img
-        src={hospital}
-        alt="Hospital icon"
-        style={{width: '40%'}}
+      <BornIcon
+        style={{
+          height: "150px",
+          width: "150px",
+          marginLeft: "50%",
+          transform: "translateX(-50%)",
+          marginBottom: "24px"
+        }}
       />
 
       <div className="mobile-section__text">

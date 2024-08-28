@@ -147,15 +147,8 @@ header {
   }
 }
 
-.screen-too-small {
-  margin-top: 10%;
-  text-align: center;
-
-  h2 {
-    margin-bottom: 24px;
-  }
-
-  p {
-    margin-bottom: 8px;
-  }
+.dark-toggle-cont {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
 }

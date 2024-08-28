@@ -1,5 +1,5 @@
 import React from 'react';
-import hospital from '../../assets/images/hospital.png';
+import { ReactComponent as BornIcon } from '../../assets/timeline-icons/born.svg';
 
 const BornSection: React.FC<{
   isVisible: boolean;
@@ -22,10 +22,12 @@ const BornSection: React.FC<{
         <p>And I've been here ever since.</p>
         <p>Breathing</p>
       </div>
-      <img
-        src={hospital}
-        alt="Hospital logo"
-        style={{transform: "translateY(-40px)"}}
+      <BornIcon
+        style={{
+          scale: "5",
+          marginLeft: "40px",
+          transform: "translateY(-10px)"
+        }}
       />
     </section>
   )
