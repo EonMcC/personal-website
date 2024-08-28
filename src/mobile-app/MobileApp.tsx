@@ -59,12 +59,12 @@ const MobileApp = () => {
       if (allowSwipe) {
         const xUp = e.changedTouches[0].clientX;
         const diff = xDown - xUp;
-        if (diff > 50) {
+        if (diff > 100) {
           setStartToHide(true);
           setCurrentSectionIndex((prev: any) => prev < sections.length - 1 ? prev + 1 : prev);
           setTimeout(() => setStartToHide(false), 500);        
         }
-        if (diff < -50) {
+        if (diff < -100) {
           setStartToHide(true);
           setCurrentSectionIndex((prev: any) => prev > 0 ? prev - 1 : prev);
           setTimeout(() => setStartToHide(false), 500);
