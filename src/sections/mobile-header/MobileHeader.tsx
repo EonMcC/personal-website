@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './MobileHeader.scss';
 import chevronLeft from '../../assets/chevronLeft.png';
 
@@ -18,10 +18,11 @@ const MobileHeader: React.FC<{isVisible: boolean}> = ({isVisible}) => {
 
         <div
           className="swipe-to-begin"
-          style={showSwipe ? {left: "0"} : {left: "150vw"}}
+          style={showSwipe ? {right: -96} : {right: "-100vw"}}
         >
           <img src={chevronLeft} alt="Chevron" />
           <p>Swipe to begin</p>
+          <img src={chevronLeft} alt="Chevron" />
         </div>
       </section>
     </>
