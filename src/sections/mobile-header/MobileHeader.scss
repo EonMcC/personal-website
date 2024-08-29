@@ -59,18 +59,14 @@
     right: -113px;
     top: 0;
     rotate: 90deg;
-
-    &__chevron {
-      rotate: 180deg;
-    }
   }
 }
 
 @keyframes bounce-right {
   0% {
-    transform: translateY(0);
+    transform: translateY(2%);
   }
   100% {
-    transform: translateY(2%);
+    transform: translateY(4%);
   }
 }

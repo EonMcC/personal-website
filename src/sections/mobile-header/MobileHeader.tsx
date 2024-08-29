@@ -20,9 +20,9 @@ const MobileHeader: React.FC<{isVisible: boolean}> = ({isVisible}) => {
           className="swipe-to-begin"
           style={showSwipe ? {right: -96} : {right: "-100vw"}}
         >
-          <Chevron className="swipe-to-begin__chevron" />
+          <Chevron />
           <p>Swipe to begin</p>
-          <Chevron className="swipe-to-begin__chevron" />
+          <Chevron />
         </div>
       </section>
     </>
