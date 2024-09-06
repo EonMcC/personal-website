@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './MobileHeader.scss';
 import { ReactComponent as Chevron } from '../../assets/chevron.svg';
 
-const MobileHeader: React.FC<{isVisible: boolean}> = ({isVisible}) => {
+const MobileHeader: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
 
   const [showSwipe, setShowSwipe] = useState(false);
 
@@ -18,10 +18,10 @@ const MobileHeader: React.FC<{isVisible: boolean}> = ({isVisible}) => {
 
         <div
           className="swipe-to-begin"
-          style={showSwipe ? {right: -96} : {right: "-100vw"}}
+          style={showSwipe ? { right: -96 } : { right: "-100vw" }}
         >
           <Chevron />
-          <p>Swipe to begin</p>
+          <p>Swipe to begin</p>45r
           <Chevron />
         </div>
       </section>
