@@ -21,7 +21,7 @@ const MobileHeader: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
           style={showSwipe ? { right: -96 } : { right: "-100vw" }}
         >
           <Chevron />
-          <p>Swipe to begin</p>45r
+          <p>Swipe to begin</p>
           <Chevron />
         </div>
       </section>
