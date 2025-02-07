@@ -22,11 +22,10 @@ import SkipTo from './skip-to/SkipTo';
 import Sections from './sections/Sections';
 import MobileApp from './mobile-app/MobileApp';
 import DarkToggle from './components/DarkToggle';
-import { isMobile } from 'react-device-detect';
 
 function App() {
 
-  // const {width, height} = useScreenSize();
+  const {width, height} = useScreenSize();
 
   const [x, setX] = useState(450);
   const [yVH, setYVH] = useState('55vh');
@@ -38,11 +37,11 @@ function App() {
   });
   const [headerClass, setHeaderClass] = useState('app-header');
 
-  document.body.onkeyup = function (e) {
+  document.body.onkeyup = function(e) {
     if (e.key === " "
       || e.code === "Space"
       || e.code === "ArrowRight"
-    ) setX(prev => prev - 25);
+    ) setX(prev => prev -  25);
 
     if (e.code === "ArrowLeft") setX(prev => prev + 25);
   }
@@ -55,7 +54,7 @@ function App() {
         document.documentElement.style.setProperty('--primary', section.color);
         changeHeader(section);
         if (section.offsetY) setYVH('80vh');
-        else setYVH('55vh');
+        else setYVH('55vh');        
         return;
       }
       setYVH('55vh');
@@ -65,7 +64,7 @@ function App() {
     changeHeader();
   }, [x])
 
-  function changeHeader({ title, subTitle } = { title: 'Iain McClafferty', subTitle: 'Developer | Designer | Storyteller' }) {
+  function changeHeader({title, subTitle} = {title: 'Iain McClafferty', subTitle: 'Developer | Designer | Storyteller'}) {
     if (header.title !== title) {
       setHeaderClass('app-header app-header--hidden');
       setTimeout(() => {
@@ -100,7 +99,7 @@ function App() {
     }
   }
 
-  if (isMobile) {
+  if (width < 965 || height < 800) {
     return <MobileApp />
   }
 
@@ -108,7 +107,7 @@ function App() {
     <div id="app" onWheel={onWheel}>
       <header
         className={headerClass}
-        style={{ color: currentColor }}
+        style={{color: currentColor}}
       >
         <h1>{header.title}</h1>
         <h2>{header.subTitle}</h2>
@@ -130,8 +129,8 @@ function App() {
           <HiIcon
             className={
               visibleSection === "ABOUT_ME"
-                ? "timeline__entry__icon timeline__entry__icon--visible"
-                : "timeline__entry__icon"
+              ? "timeline__entry__icon timeline__entry__icon--visible"
+              : "timeline__entry__icon"
             }
             fill={currentColor}
           />
@@ -145,8 +144,8 @@ function App() {
           <FinanceTrackerIcon
             className={
               visibleSection === "FINANCE_TRACKER"
-                ? "timeline__entry__icon timeline__entry__icon--visible"
-                : "timeline__entry__icon"
+              ? "timeline__entry__icon timeline__entry__icon--visible"
+              : "timeline__entry__icon"
             }
             fill={currentColor}
           />
@@ -160,8 +159,8 @@ function App() {
           <GameDevIcon
             className={
               visibleSection === "GAME_DEV"
-                ? "timeline__entry__icon timeline__entry__icon--visible"
-                : "timeline__entry__icon"
+              ? "timeline__entry__icon timeline__entry__icon--visible"
+              : "timeline__entry__icon"
             }
             fill={currentColor}
           />
@@ -175,8 +174,8 @@ function App() {
           <PvpIcon
             className={
               visibleSection === "PVP"
-                ? "timeline__entry__icon timeline__entry__icon--visible"
-                : "timeline__entry__icon"
+              ? "timeline__entry__icon timeline__entry__icon--visible"
+              : "timeline__entry__icon"
             }
             fill={currentColor}
           />
@@ -190,8 +189,8 @@ function App() {
           <AmiIcon
             className={
               visibleSection === "AMI"
-                ? "timeline__entry__icon timeline__entry__icon--visible"
-                : "timeline__entry__icon"
+              ? "timeline__entry__icon timeline__entry__icon--visible"
+              : "timeline__entry__icon"
             }
             fill={currentColor}
           />
@@ -205,8 +204,8 @@ function App() {
           <PooTimerIcon
             className={
               visibleSection === "POO_TIMER"
-                ? "timeline__entry__icon timeline__entry__icon--visible"
-                : "timeline__entry__icon"
+              ? "timeline__entry__icon timeline__entry__icon--visible"
+              : "timeline__entry__icon"
             }
             fill={currentColor}
           />
@@ -220,8 +219,8 @@ function App() {
           <AfsIcon
             className={
               visibleSection === "AFS"
-                ? "timeline__entry__icon timeline__entry__icon--visible"
-                : "timeline__entry__icon"
+              ? "timeline__entry__icon timeline__entry__icon--visible"
+              : "timeline__entry__icon"
             }
             fill={currentColor}
           />
@@ -235,8 +234,8 @@ function App() {
           <CodeclanIcon
             className={
               visibleSection === "CODECLAN"
-                ? "timeline__entry__icon timeline__entry__icon--visible"
-                : "timeline__entry__icon"
+              ? "timeline__entry__icon timeline__entry__icon--visible"
+              : "timeline__entry__icon"
             }
             fill={currentColor}
           />
@@ -250,8 +249,8 @@ function App() {
           <FireServiceIcon
             className={
               visibleSection === "FIRE"
-                ? "timeline__entry__icon timeline__entry__icon--visible"
-                : "timeline__entry__icon"
+              ? "timeline__entry__icon timeline__entry__icon--visible"
+              : "timeline__entry__icon"
             }
             fill={currentColor}
           />
@@ -265,8 +264,8 @@ function App() {
           <FamilyIcon
             className={
               visibleSection === "FAMILY"
-                ? "timeline__entry__icon timeline__entry__icon--visible"
-                : "timeline__entry__icon"
+              ? "timeline__entry__icon timeline__entry__icon--visible"
+              : "timeline__entry__icon"
             }
             fill={currentColor}
           />
@@ -280,8 +279,8 @@ function App() {
           <SgnIcon
             className={
               visibleSection === "SGN"
-                ? "timeline__entry__icon timeline__entry__icon--visible"
-                : "timeline__entry__icon"
+              ? "timeline__entry__icon timeline__entry__icon--visible"
+              : "timeline__entry__icon"
             }
             fill={currentColor}
           />
@@ -295,8 +294,8 @@ function App() {
           <ShipIcon
             className={
               visibleSection === "VARIOUS"
-                ? "timeline__entry__icon timeline__entry__icon--visible"
-                : "timeline__entry__icon"
+              ? "timeline__entry__icon timeline__entry__icon--visible"
+              : "timeline__entry__icon"
             }
             fill={currentColor}
           />
@@ -310,8 +309,8 @@ function App() {
           <PhotographyIcon
             className={
               visibleSection === "STEVENSON"
-                ? "timeline__entry__icon timeline__entry__icon--visible"
-                : "timeline__entry__icon"
+              ? "timeline__entry__icon timeline__entry__icon--visible"
+              : "timeline__entry__icon"
             }
             fill={currentColor}
           />
@@ -325,8 +324,8 @@ function App() {
           <EducationIcon
             className={
               visibleSection === "SCHOOL"
-                ? "timeline__entry__icon timeline__entry__icon--visible"
-                : "timeline__entry__icon"
+              ? "timeline__entry__icon timeline__entry__icon--visible"
+              : "timeline__entry__icon"
             }
             fill={currentColor}
           />
@@ -340,8 +339,8 @@ function App() {
           <BornIcon
             className={
               visibleSection === "BORN"
-                ? "timeline__entry__icon timeline__entry__icon--visible"
-                : "timeline__entry__icon"
+              ? "timeline__entry__icon timeline__entry__icon--visible"
+              : "timeline__entry__icon"
             }
             fill={currentColor}
           />
@@ -350,7 +349,7 @@ function App() {
 
 
       </div>
-
+      
       <div
         className="timeline-pointer"
         style={{
@@ -363,7 +362,7 @@ function App() {
 
       {x > 400 && <p className="scroll-to-begin">Scroll to begin</p>}
 
-      <SkipTo skipTo={skipTo} />
+      <SkipTo skipTo={skipTo}/>
 
       <div className="dark-toggle-cont"><DarkToggle /></div>
     </div>
