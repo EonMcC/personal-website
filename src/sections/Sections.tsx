@@ -15,13 +15,20 @@ import VariousSection from './various/VariousSection';
 import StevensonSection from './stevenson/StevensonSection';
 import SchoolSection from './school/SchoolSections';
 import BornSection from './born/Born';
+import useCmsHandler, { IProjectContent } from '../kwam-cms/useCmsHandler';
+import { Pages } from '../kwam-cms/pages';
 
-const Sections: React.FC<{visibleSection: string}> = ({visibleSection}) => {
+const Sections: React.FC<{ visibleSection: string }> = ({ visibleSection }) => {
+
+  const cms = useCmsHandler(null, 'PROJECT') as IProjectContent;
+
+  if (!cms) return <h1>Loading...</h1>;
 
   return (
     <>
-      <AboutMeSection isVisible={visibleSection === "ABOUT_ME"} />
-      <FinanceTrackerSection isVisible={visibleSection === "FINANCE_TRACKER"} />
+      <AboutMeSection isVisible={visibleSection === "ABOUT_ME"} cmsContent={cms[Pages.ABOUT_ME]} />
+      {/* <AboutMeSection isVisible={visibleSection === "ABOUT_ME"} cmsContent={cms["67f56c9d1588fd14e323efe1"]} /> */}
+      {/* <FinanceTrackerSection isVisible={visibleSection === "FINANCE_TRACKER"} cmsContent={cms.financeTracker} /> */}
       <GameDevelopmentSection isVisible={visibleSection === "GAME_DEV"} />
       <PvPHealthSection isVisible={visibleSection === "PVP"} />
       <AmiSection isVisible={visibleSection === "AMI"} />

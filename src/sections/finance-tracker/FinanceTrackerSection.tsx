@@ -1,10 +1,13 @@
 import React from 'react';
 import financeTracker from '../../assets/images/financeTracker.png';
+import { IPageContent } from '../../kwam-cms/useCmsHandler';
 
 const FinanceTrackerSection: React.FC<{
   isVisible: boolean;
+  cmsContent: IPageContent;
 }> = ({
-  isVisible
+  isVisible,
+  cmsContent
 }) => {
 
     return (
@@ -15,13 +18,14 @@ const FinanceTrackerSection: React.FC<{
             : "section"
         }
       >
-        <div className="section__text">
+        {/* <div className="section__text" dangerouslySetInnerHTML={{ __html: cmsContent.sectionText }} /> */}
+        {/* <div className="section__text">
           <p><strong>Finance Tracker</strong> is a <strong>React Native</strong> app I developed to simplify managing my family finances.</p>
           <p>By integrating with the <strong>Monzo API</strong>, it provides real-time updates on transactions from my current account. The app calculates my adjusted balance, shows my balance on any given day, and compares my balance to the previous month.</p>
           <p>For the design, I opted for a minimalistic approach to contrast with Monzo's busier interface.</p>
           <p>This started out as a web app which I then converted to a React Native app to learn and practice React Native.</p>
           <p>React Native | React | TypeScript | Firebase | Monzo API</p>
-        </div>
+        </div> */}
         <img src={financeTracker} alt="Finance Tracker" />
       </section>
     )

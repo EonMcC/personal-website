@@ -1,8 +1,12 @@
 import React from 'react';
 import './AboutMe.scss';
 import me from '../../assets/images/me.png';
+import { IPageContent } from '../../kwam-cms/useCmsHandler';
+import KwamCms from '../../kwam-cms/KwamCMS';
 
-const AboutMeSection: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
+const AboutMeSection: React.FC<{ isVisible: boolean, cmsContent: IPageContent }> = ({ isVisible, cmsContent }) => {
+
+  // const [imageUrl, setImageUrl] = useState<string>("");
 
   return (
     <section
@@ -12,7 +16,11 @@ const AboutMeSection: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
           : "section"
       }
     >
-      <div className="section__text">
+      {/* <div className="section__text" dangerouslySetInnerHTML={{ __html: cmsContent.sectionText }} /> */}
+      {/* <KwamCms className="section__text" content={cmsContent.sectionText} /> */}
+
+
+      {/* <div className="section__text">
         <p>That over there --&gt;</p>
         <p>is me, hello!</p>
         <p>I am a talented front-end <strong>developer</strong> passionate about design and all things <strong>UI/UX</strong>.</p>
@@ -29,9 +37,10 @@ const AboutMeSection: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
             rel="noreferrer"
           >linkedin.com/in/iain-mcclafferty</a>
         </div>
-      </div>
+      </div> */}
 
-      <img src={me} alt="Me" style={{ maxHeight: "450px" }} />
+      {/* <img src={me} alt="Me" style={{ maxHeight: "450px" }} /> */}
+      <KwamCms isImage content={cmsContent?.anothertest} />
     </section>
   )
 }
