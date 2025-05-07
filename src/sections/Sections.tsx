@@ -26,7 +26,7 @@ const Sections: React.FC<{ visibleSection: string }> = ({ visibleSection }) => {
 
   return (
     <>
-      <AboutMeSection isVisible={visibleSection === "ABOUT_ME"} cmsContent={cms[Pages.ABOUT_ME]} />
+      <AboutMeSection isVisible={visibleSection === "ABOUT_ME"} cmsContent={cms[Pages.aboutMe]} />
       {/* <AboutMeSection isVisible={visibleSection === "ABOUT_ME"} cmsContent={cms["67f56c9d1588fd14e323efe1"]} /> */}
       {/* <FinanceTrackerSection isVisible={visibleSection === "FINANCE_TRACKER"} cmsContent={cms.financeTracker} /> */}
       <GameDevelopmentSection isVisible={visibleSection === "GAME_DEV"} />

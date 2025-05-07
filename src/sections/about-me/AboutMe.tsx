@@ -17,7 +17,7 @@ const AboutMeSection: React.FC<{ isVisible: boolean, cmsContent: IPageContent }>
       }
     >
       {/* <div className="section__text" dangerouslySetInnerHTML={{ __html: cmsContent.sectionText }} /> */}
-      {/* <KwamCms className="section__text" content={cmsContent.sectionText} /> */}
+      <KwamCms className="section__text" content={cmsContent.mainText} />
 
 
       {/* <div className="section__text">
@@ -40,7 +40,7 @@ const AboutMeSection: React.FC<{ isVisible: boolean, cmsContent: IPageContent }>
       </div> */}
 
       {/* <img src={me} alt="Me" style={{ maxHeight: "450px" }} /> */}
-      <KwamCms isImage content={cmsContent?.anothertest} />
+      <KwamCms isImage content={cmsContent?.image} />
     </section>
   )
 }
