@@ -22,13 +22,14 @@ const FireServiceSection: React.FC<{
           <p>Fire fighting | Team work</p>
         </div>
 
-        {isVisible && (
-          <img
-            src={fireService}
-            alt="Scottish Fire & Rescue Service"
-            style={{ transform: "translateY(-85px)" }}
-          />
-        )}
+        <img
+          src={fireService}
+          alt="Scottish Fire & Rescue Service"
+          style={{ transform: "translateY(-85px)", visibility: isVisible ? "visible" : "hidden" }}
+          width="300"
+          height="120"
+          loading="lazy"
+        />
       </section>
     )
   }

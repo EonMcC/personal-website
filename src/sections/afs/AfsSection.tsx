@@ -18,13 +18,14 @@ const AfsSection: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
         <p>Angular | Ionic | Figma | AWS | GitHub</p>
       </div>
 
-      {isVisible && (
-        <img
-          src={afs}
-          alt="AFS Logo"
-          style={{ translate: "0 -35%", maxWidth: "25%" }}
-        />
-      )}
+      <img
+        src={afs}
+        alt="AFS Logo"
+        style={{ translate: "0 -35%", maxWidth: "25%", visibility: isVisible ? "visible" : "hidden" }}
+        loading="lazy"
+        width="292"
+        height="125"
+      />
     </section>
   )
 }

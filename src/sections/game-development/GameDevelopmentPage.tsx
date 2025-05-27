@@ -19,13 +19,14 @@ const GameDevelopmentSection: React.FC<{ isVisible: boolean }> = ({ isVisible })
         <p>Godot | OOP | Project Management | Project Planning</p>
       </div>
 
-      {isVisible && (
-        <img
-          src={gameDev}
-          alt="Barista Turnbasta"
-          style={{ translate: "0 -35%" }}
-        />
-      )}
+      <img
+        src={gameDev}
+        alt="Barista Turnbasta"
+        style={{ translate: "0 -35%", visibility: isVisible ? "visible" : "hidden" }}
+        width="365"
+        height="320"
+        loading="lazy"
+      />
     </section>
   )
 }

@@ -23,12 +23,14 @@ const FamilySection: React.FC<{
           <p>Straight up being a dad</p>
         </div>
 
-        {isVisible && (
-          <img
-            src={family}
-            alt="My family"
-          />
-        )}
+        <img
+          src={family}
+          alt="My family"
+          style={{ visibility: isVisible ? "visible" : "hidden" }}
+          width="234"
+          height="320"
+          loading="lazy"
+        />
       </section>
     )
   }

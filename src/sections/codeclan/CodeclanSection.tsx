@@ -16,6 +16,10 @@ const CodeclanSection: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
         <img
           src={codeclanLogo}
           alt="CodeClan logo"
+          style={{ display: isVisible ? "block" : "none" }}
+          width="196"
+          height="157"
+          loading="lazy"
         />
         <p>What can I say about <strong>CodeClan</strong>? It changed my life and set me on a trajectory I never thought possible.</p>
         <p>I learned so much in such a short space of time and gained a career that I can be proud of.</p>
@@ -24,12 +28,14 @@ const CodeclanSection: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
         <p>JavaScript | React | Vue | Java | Spring | Ruby |  HTML | CSS | Git | GitHub | OOP | Coding Best Practices | Teamwork | Code Reviews</p>
       </div>
 
-      {isVisible && (
-        <img
-          src={codeclan}
-          alt="CodeClan projects"
-        />
-      )}
+      <img
+        src={codeclan}
+        alt="CodeClan projects"
+        style={{ visibility: isVisible ? "visible" : "hidden" }}
+        width="270"
+        height="320"
+        loading="lazy"
+      />
     </section>
   )
 }

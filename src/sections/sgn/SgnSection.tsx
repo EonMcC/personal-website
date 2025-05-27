@@ -23,13 +23,14 @@ const SgnSection: React.FC<{
           <p>Gas Network Analysis | Interview Skills</p>
         </div>
 
-        {isVisible && (
-          <img
-            src={sgn}
-            alt="SGN Logo"
-            style={{ transform: "translateY(-40px)", maxWidth: "30%" }}
-          />
-        )}
+        <img
+          src={sgn}
+          alt="SGN Logo"
+          style={{ transform: "translateY(-40px)", maxWidth: "30%", visibility: isVisible ? "visible" : "hidden" }}
+          width="351"
+          height="204"
+          loading="lazy"
+        />
       </section>
     )
   }

@@ -19,9 +19,14 @@ const PvPHealthSection: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
         <p>React | TypeScript | Redux | Firebase | Cloud Messaging | Cloud Functions | Pixel Art | Project Planning</p>
       </div>
 
-      {isVisible && (
-        <img src={pvpHealth} alt="PvP Health" />
-      )}
+      <img
+        src={pvpHealth}
+        alt="PvP Health"
+        style={{ visibility: isVisible ? "visible" : "hidden" }}
+        width="288"
+        height="320"
+        loading="lazy"
+      />
     </section>
   )
 }

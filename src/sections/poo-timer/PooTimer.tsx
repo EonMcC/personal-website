@@ -19,13 +19,14 @@ const PooTimerSection: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
         <p>Angular | Ionic | Figma | Android Studio </p>
       </div>
 
-      {isVisible && (
-        <img
-          src={pooTimer}
-          alt="Poo Timer"
-          style={{ transform: "translateY(-40px)" }}
-        />
-      )}
+      <img
+        src={pooTimer}
+        alt="Poo Timer"
+        style={{ transform: "translateY(-40px)", visibility: isVisible ? "visible" : "hidden" }}
+        width="416"
+        height="320"
+        loading="lazy"
+      />
     </section>
   )
 }

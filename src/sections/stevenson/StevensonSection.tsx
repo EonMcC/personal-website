@@ -18,9 +18,14 @@ const StevensonSection: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
         <p>HNC Accounts | NQ Photography</p>
       </div>
 
-      {isVisible && (
-        <img src={stevenson} alt="PvP Health" />
-      )}
+      <img
+        src={stevenson}
+        alt="PvP Health"
+        style={{ visibility: isVisible ? "visible" : "hidden" }}
+        width="225"
+        height="320"
+        loading="lazy"
+      />
     </section>
   )
 }

@@ -22,13 +22,14 @@ const VariousSection: React.FC<{
           <p>Life Skills | People Management</p>
         </div>
 
-        {isVisible && (
-          <img
-            src={various}
-            alt="Shanghai Collage"
-            style={{ transform: "translateY(-40px)" }}
-          />
-        )}
+        <img
+          src={various}
+          alt="Shanghai Collage"
+          style={{ transform: "translateY(-40px)", visibility: isVisible ? "visible" : "hidden" }}
+          width="321"
+          height="320"
+          loading="lazy"
+        />
       </section>
     )
   }

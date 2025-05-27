@@ -22,13 +22,14 @@ const AmiSection: React.FC<{
           <p>React | Redux | Figma | AWS | Self built UI library</p>
         </div>
 
-        {isVisible && (
-          <img
-            src={ami}
-            alt="AMI Logo"
-            style={{ transform: "translateY(-85px)", maxWidth: "25%" }}
-          />
-        )}
+        <img
+          src={ami}
+          alt="AMI Logo"
+          style={{ transform: "translateY(-85px)", maxWidth: "25%", visibility: isVisible ? "visible" : "hidden" }}
+          width="292"
+          height="205"
+          loading="lazy"
+        />
       </section>
     )
   }

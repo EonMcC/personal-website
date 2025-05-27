@@ -30,9 +30,14 @@ const AboutMeSection: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
         </div>
       </div>
 
-      {isVisible && (
-        <img src={me} alt="Me" style={{ maxHeight: "450px" }} />
-      )}
+      <img
+        src={me}
+        alt="Me"
+        style={{ maxHeight: "450px", visibility: isVisible ? "visible" : "hidden" }}
+        loading="lazy"
+        width="491"
+        height="450"
+      />
     </section>
   )
 }

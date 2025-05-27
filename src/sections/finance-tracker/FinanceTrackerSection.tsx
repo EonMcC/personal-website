@@ -23,9 +23,14 @@ const FinanceTrackerSection: React.FC<{
           <p>React Native | React | TypeScript | Firebase | Monzo API</p>
         </div>
 
-        {isVisible && (
-          <img src={financeTracker} alt="Finance Tracker" />
-        )}
+        <img
+          src={financeTracker}
+          alt="Finance Tracker"
+          style={{ visibility: isVisible ? "visible" : "hidden" }}
+          width="144"
+          height="320"
+          loading="lazy"
+        />
       </section>
     )
   }
