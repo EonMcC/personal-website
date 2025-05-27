@@ -17,7 +17,6 @@ import { ReactComponent as ShipIcon } from './assets/timeline-icons/ship.svg';
 import { ReactComponent as PhotographyIcon } from './assets/timeline-icons/photography.svg';
 import { ReactComponent as EducationIcon } from './assets/timeline-icons/education.svg';
 import { ReactComponent as BornIcon } from './assets/timeline-icons/born.svg';
-import useScreenSize from './hooks/useScreenSize';
 import SkipTo from './skip-to/SkipTo';
 import Sections from './sections/Sections';
 import MobileApp from './mobile-app/MobileApp';
@@ -25,8 +24,6 @@ import DarkToggle from './components/DarkToggle';
 import { isMobile } from 'react-device-detect';
 
 function App() {
-
-  // const {width, height} = useScreenSize();
 
   const [x, setX] = useState(450);
   const [yVH, setYVH] = useState('55vh');
@@ -42,9 +39,16 @@ function App() {
     if (e.key === " "
       || e.code === "Space"
       || e.code === "ArrowRight"
-    ) setX(prev => prev - 25);
+    ) {
+      const index = sections.findIndex(el => el.name === visibleSection);
+      if (index >= 0 && index < sections.length - 1) setX(sections[index + 1].xRange[0]);
+      else setX(sections[1].xRange[0])
+    }
 
-    if (e.code === "ArrowLeft") setX(prev => prev + 25);
+    if (e.code === "ArrowLeft") {
+      const index = sections.findIndex(el => el.name === visibleSection);
+      if (index > 1) setX(sections[index - 1].xRange[0]);
+    }
   }
 
   useEffect(() => {
