@@ -1,7 +1,7 @@
 import React from 'react';
 import pvpHealth from '../../assets/images/pvpHealth.png';
 
-const PvPHealthSection: React.FC<{isVisible: boolean}> = ({isVisible}) => {
+const PvPHealthSection: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
 
   return (
     <section
@@ -19,7 +19,9 @@ const PvPHealthSection: React.FC<{isVisible: boolean}> = ({isVisible}) => {
         <p>React | TypeScript | Redux | Firebase | Cloud Messaging | Cloud Functions | Pixel Art | Project Planning</p>
       </div>
 
-      <img src={pvpHealth} alt="PvP Health" />
+      {isVisible && (
+        <img src={pvpHealth} alt="PvP Health" />
+      )}
     </section>
   )
 }

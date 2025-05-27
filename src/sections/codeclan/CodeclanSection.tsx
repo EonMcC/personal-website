@@ -2,7 +2,7 @@ import React from 'react';
 import codeclan from '../../assets/images/codeclan.png';
 import codeclanLogo from '../../assets/images/codeclanLogo.png';
 
-const CodeclanSection: React.FC<{isVisible: boolean}> = ({isVisible}) => {
+const CodeclanSection: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
 
   return (
     <section
@@ -24,10 +24,12 @@ const CodeclanSection: React.FC<{isVisible: boolean}> = ({isVisible}) => {
         <p>JavaScript | React | Vue | Java | Spring | Ruby |  HTML | CSS | Git | GitHub | OOP | Coding Best Practices | Teamwork | Code Reviews</p>
       </div>
 
-      <img
-        src={codeclan}
-        alt="CodeClan projects"
-      />
+      {isVisible && (
+        <img
+          src={codeclan}
+          alt="CodeClan projects"
+        />
+      )}
     </section>
   )
 }

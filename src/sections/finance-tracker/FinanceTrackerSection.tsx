@@ -22,7 +22,10 @@ const FinanceTrackerSection: React.FC<{
           <p>This started out as a web app which I then converted to a React Native app to learn and practice React Native.</p>
           <p>React Native | React | TypeScript | Firebase | Monzo API</p>
         </div>
-        <img src={financeTracker} alt="Finance Tracker" />
+
+        {isVisible && (
+          <img src={financeTracker} alt="Finance Tracker" />
+        )}
       </section>
     )
   }

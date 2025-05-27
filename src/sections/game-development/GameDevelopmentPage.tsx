@@ -1,7 +1,7 @@
 import React from 'react';
 import gameDev from '../../assets/images/gameDev.png';
 
-const GameDevelopmentSection: React.FC<{isVisible: boolean}> = ({isVisible}) => {
+const GameDevelopmentSection: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
 
   return (
     <section
@@ -19,11 +19,13 @@ const GameDevelopmentSection: React.FC<{isVisible: boolean}> = ({isVisible}) => 
         <p>Godot | OOP | Project Management | Project Planning</p>
       </div>
 
-      <img
-        src={gameDev}
-        alt="Barista Turnbasta"
-        style={{translate: "0 -35%"}}
-      />
+      {isVisible && (
+        <img
+          src={gameDev}
+          alt="Barista Turnbasta"
+          style={{ translate: "0 -35%" }}
+        />
+      )}
     </section>
   )
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import stevenson from '../../assets/images/stevenson.png';
 
-const StevensonSection: React.FC<{isVisible: boolean}> = ({isVisible}) => {
+const StevensonSection: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
 
   return (
     <section
@@ -18,7 +18,9 @@ const StevensonSection: React.FC<{isVisible: boolean}> = ({isVisible}) => {
         <p>HNC Accounts | NQ Photography</p>
       </div>
 
-      <img src={stevenson} alt="PvP Health" />
+      {isVisible && (
+        <img src={stevenson} alt="PvP Health" />
+      )}
     </section>
   )
 }

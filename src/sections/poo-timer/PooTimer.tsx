@@ -1,7 +1,7 @@
 import React from 'react';
 import pooTimer from '../../assets/images/pooTimer.png';
 
-const PooTimerSection: React.FC<{isVisible: boolean}> = ({isVisible}) => {
+const PooTimerSection: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
 
   return (
     <section
@@ -19,11 +19,13 @@ const PooTimerSection: React.FC<{isVisible: boolean}> = ({isVisible}) => {
         <p>Angular | Ionic | Figma | Android Studio </p>
       </div>
 
-      <img
-        src={pooTimer}
-        alt="Poo Timer"
-        style={{transform: "translateY(-40px)"}}
-      />
+      {isVisible && (
+        <img
+          src={pooTimer}
+          alt="Poo Timer"
+          style={{ transform: "translateY(-40px)" }}
+        />
+      )}
     </section>
   )
 }

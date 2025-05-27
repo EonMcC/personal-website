@@ -1,7 +1,7 @@
 import React from 'react';
 import afs from '../../assets/images/afs.png';
 
-const AfsSection: React.FC<{isVisible: boolean}> = ({isVisible}) => {
+const AfsSection: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
 
   return (
     <section
@@ -18,11 +18,13 @@ const AfsSection: React.FC<{isVisible: boolean}> = ({isVisible}) => {
         <p>Angular | Ionic | Figma | AWS | GitHub</p>
       </div>
 
-      <img
-        src={afs}
-        alt="AFS Logo"
-        style={{translate: "0 -35%", maxWidth: "25%"}}
-      />
+      {isVisible && (
+        <img
+          src={afs}
+          alt="AFS Logo"
+          style={{ translate: "0 -35%", maxWidth: "25%" }}
+        />
+      )}
     </section>
   )
 }

@@ -21,11 +21,14 @@ const AmiSection: React.FC<{
           <p>Using Figma for designs and React for the front end, I developed a booking platform that is used to ship parcels across the globe.</p>
           <p>React | Redux | Figma | AWS | Self built UI library</p>
         </div>
-        <img
-          src={ami}
-          alt="AMI Logo"
-          style={{ transform: "translateY(-85px)", maxWidth: "25%" }}
-        />
+
+        {isVisible && (
+          <img
+            src={ami}
+            alt="AMI Logo"
+            style={{ transform: "translateY(-85px)", maxWidth: "25%" }}
+          />
+        )}
       </section>
     )
   }
