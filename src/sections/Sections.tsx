@@ -16,7 +16,7 @@ import StevensonSection from './stevenson/StevensonSection';
 import SchoolSection from './school/SchoolSections';
 import BornSection from './born/Born';
 
-const Sections: React.FC<{visibleSection: string}> = ({visibleSection}) => {
+const Sections: React.FC<{ visibleSection: string }> = ({ visibleSection }) => {
 
   return (
     <>
