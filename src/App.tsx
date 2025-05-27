@@ -41,13 +41,13 @@ function App() {
       || e.code === "ArrowRight"
     ) {
       const index = sections.findIndex(el => el.name === visibleSection);
-      if (index >= 0 && index < sections.length - 1) setX(sections[index + 1].xRange[0]);
-      else setX(sections[1].xRange[0])
+      if (index >= 0 && index < sections.length - 1) setX(sections[index + 1].xRange[1] - 25);
+      else setX(sections[1].xRange[1] - 25)
     }
 
     if (e.code === "ArrowLeft") {
       const index = sections.findIndex(el => el.name === visibleSection);
-      if (index > 1) setX(sections[index - 1].xRange[0]);
+      if (index > 1) setX(sections[index - 1].xRange[1] - 25);
     }
   }
 

@@ -6,7 +6,7 @@ export enum ESubTitle {
   EMPLOYMENT = 'Employment',
   TODO = 'TODO',
   EDUCATION = 'Education'
-} 
+}
 
 export type Section = {
   name: string;
@@ -70,7 +70,7 @@ export const sections = [
     subTitle: ESubTitle.CAREER,
     color: '#85AED7',
     offsetY: false,
-    xRange: [-375, -250],
+    xRange: [-375, -300],
     xPosition: -660
   },
   {
